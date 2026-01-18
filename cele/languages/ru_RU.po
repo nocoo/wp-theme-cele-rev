@@ -1,0 +1,560 @@
+# Copyright (C) 2019 Compete Themes
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cele 1.21\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2019-02-21 20:12:50+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-08-05 15:01+0300\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.3\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: ru\n"
+
+#: 404.php:6
+msgid "404: Page Not Found"
+msgstr "404: Страница не найдена"
+
+#: 404.php:9
+msgid ""
+"Looks like nothing was found on this url.  Double-check that the url is "
+"correct or try the search form below to find what you were looking for."
+msgstr ""
+"Похоже, по этому адресу ничего нет.  Проверьте правильность адреса или "
+"попробуйте поиск по сайту."
+
+#: comments.php:12 comments.php:32 comments.php:54
+msgid "Be First to Comment"
+msgstr "Прокомментировать первым"
+
+#: comments.php:12 comments.php:32 comments.php:54
+msgid "One Comment"
+msgstr "Один комментарий"
+
+#: comments.php:46
+msgid ""
+"Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Комментарии отключены, но <a href=\"%s\" title=\"Trackback URL for this post"
+"\">трэкбэки</a> и пингбэки открыты."
+
+#: comments.php:68 comments.php:85
+msgid "Comments are closed."
+msgstr "Комментарии отключены."
+
+#: content/comments-link.php:2
+msgid "comment icon"
+msgstr "иконка комментариев"
+
+#: content/comments-link.php:5
+msgid "Comments closed"
+msgstr "Комментарии отключены"
+
+#: content/comments-link.php:5 content/comments-link.php:8
+msgid "1 Comment"
+msgstr "1 Комментарий"
+
+#: content/comments-link.php:8
+msgid "Leave a Comment"
+msgstr "Прокомментировать"
+
+#: content/post-nav-attachment.php:3
+msgid "Previous Image"
+msgstr "Предыдущее изображение"
+
+#: content/post-nav-attachment.php:6
+msgid "Next Image"
+msgstr "Следующее изображение"
+
+#: content/post-nav.php:7
+msgid "Previous Post"
+msgstr "Предыдущая запись"
+
+#: content/post-nav.php:10
+msgid "No Older Posts"
+msgstr "Нет более старых записей"
+
+#: content/post-nav.php:16 content/post-nav.php:29
+msgid "Return to Blog"
+msgstr "Вернуться в блог"
+
+#: content/post-nav.php:20
+msgid "Next Post"
+msgstr "Следущая запись"
+
+#: content/post-nav.php:23
+msgid "No Newer Posts"
+msgstr "Нет более новых записей"
+
+#: content/post-tags.php:8
+msgid "View all posts tagged %s"
+msgstr "Посмотреть все записи с тегом %s"
+
+#: content/search-bar.php:11 searchform.php:3
+msgid "Search"
+msgstr "Поиск"
+
+#: content/search-bar.php:12
+msgid "Search..."
+msgstr "Поиск..."
+
+#: content/search-bar.php:13 searchform.php:5
+msgid "Search for:"
+msgstr "Искать:"
+
+#: content-page.php:11 content.php:13
+msgid "Pages:"
+msgstr "Страницы:"
+
+#: footer.php:11
+msgid "<a href=\"%1$s\">%2$s Theme</a> by Compete Themes."
+msgstr "<a href=\"%1$s\">%2$s тема</a> от Compete Themes."
+
+#: functions.php:19
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Cele for a little while now. "
+"If you're happy with this theme, could you take a minute to leave a review? "
+"<i>You won't see this notice again after closing it.</i>"
+msgstr ""
+"Привет! Извините за беспокойство, но вы используете Cele. Если вам нравится "
+"эта тема, не могли-бы вы потратить пару минут, чтобы оставить отзыв? <i>Вы "
+"больше не увидете это сообщение после его закрытия.</i>"
+
+#: functions.php:52
+msgid "Primary"
+msgstr "Основное"
+
+#: functions.php:72
+msgid "small"
+msgstr "маленький"
+
+#: functions.php:73
+msgid "S"
+msgstr "МАЛ"
+
+#: functions.php:78
+msgid "regular"
+msgstr "обычный"
+
+#: functions.php:79
+msgid "M"
+msgstr "ОБЫЧН"
+
+#: functions.php:84
+msgid "large"
+msgstr "большой"
+
+#: functions.php:85
+msgid "L"
+msgstr "БОЛ"
+
+#: functions.php:90
+msgid "larger"
+msgstr "огромный"
+
+#: functions.php:91
+msgid "XL"
+msgstr "ОГРОМН"
+
+#: functions.php:116
+msgid "Primary Sidebar"
+msgstr "Основной сайдбар"
+
+#: functions.php:118
+msgid ""
+"Widgets in this area will be shown in the sidebar next to the main post "
+"content"
+msgstr ""
+"Виджеты в этой области будут показаны на сайдбаре сразу после содержания "
+"поста"
+
+#: functions.php:144
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ждет проверки."
+
+#: functions.php:168
+msgid "(optional)"
+msgstr "(опционально)"
+
+#: functions.php:174
+msgid "Jane Doe"
+msgstr "Jane Doe"
+
+#: functions.php:181
+msgid "name@email.com"
+msgstr "имя@сервер.ru"
+
+#: functions.php:187
+msgid "Website"
+msgstr "Сайт"
+
+#: functions.php:188
+msgid "http://google.com"
+msgstr "http://яндекс.ru"
+
+#: functions.php:241 functions.php:305 inc/customizer.php:186
+msgid "Continue Reading"
+msgstr "Продолжить чтение"
+
+#: functions.php:511
+msgid "Featured"
+msgstr "Отличительный"
+
+#: functions.php:573
+msgid "Customizer settings deleted."
+msgstr "Персональные настройки удалены."
+
+#: functions.php:579
+msgid "%s successfully activated!"
+msgstr "%s успешно активировано!"
+
+#: functions.php:742
+msgid "Scroll to the top"
+msgstr "Наверх страницы"
+
+#: functions.php:761
+msgid "Last updated on"
+msgstr "Последниее обновление"
+
+#: functions.php:777
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: functions.php:778
+msgid "Next"
+msgstr "Следующий"
+
+#: header.php:11
+msgid "Press \"Enter\" to skip to content"
+msgstr "Нажмите \"Enter\" чтобы переместиться к содержанию"
+
+#: inc/customizer.php:15
+msgid "Front Page"
+msgstr "Лицевая страница"
+
+#: inc/customizer.php:27
+msgid "Logo"
+msgstr "Лого"
+
+#: inc/customizer.php:37
+msgid "Upload custom logo."
+msgstr "Загрузить свое лого."
+
+#: inc/customizer.php:53
+msgid "Social Media Icons"
+msgstr "Иконки соцсетей"
+
+#: inc/customizer.php:55
+msgid "Add the URL for each of your social profiles."
+msgstr "Добавьте url для каждой соцсети."
+
+#: inc/customizer.php:68
+msgid "Email Address"
+msgstr "Адрес e-mail"
+
+#: inc/customizer.php:79
+msgid "Phone"
+msgstr "Телефон"
+
+#: inc/customizer.php:89
+msgid "Google Plus"
+msgstr "Gogole Plus"
+
+#: inc/customizer.php:91
+msgid "RSS"
+msgstr "RSS"
+
+#: inc/customizer.php:93
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: inc/customizer.php:95
+msgid "SlideShare"
+msgstr "SlideShare"
+
+#: inc/customizer.php:97
+msgid "CodePen"
+msgstr "CodePen"
+
+#: inc/customizer.php:99
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: inc/customizer.php:101
+msgid "DeviantArt"
+msgstr "DeviantArt"
+
+#: inc/customizer.php:103
+msgid "Google Wallet"
+msgstr "Кошелек Google"
+
+#: inc/customizer.php:105
+msgid "Hacker News"
+msgstr "Hacker News"
+
+#: inc/customizer.php:107
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: inc/customizer.php:109
+msgid "QQ"
+msgstr "QQ"
+
+#: inc/customizer.php:111
+msgid "VK"
+msgstr "Вконтакте"
+
+#: inc/customizer.php:113
+msgid "WeChat"
+msgstr "WeChat"
+
+#: inc/customizer.php:115
+msgid "Tencent Weibo"
+msgstr "Tencent Weibo"
+
+#: inc/customizer.php:117
+msgid "PayPal"
+msgstr "PayPal"
+
+#: inc/customizer.php:119
+msgid "Stack Overflow"
+msgstr "Stack Overflow"
+
+#: inc/customizer.php:121
+msgid "OK.ru"
+msgstr "Одноклассники"
+
+#: inc/customizer.php:123
+msgid "Contact Form"
+msgstr "Форма для связи"
+
+#: inc/customizer.php:163
+msgid "Show full posts on blog?"
+msgstr "Показывать посты полностью в блоге?"
+
+#: inc/customizer.php:168 inc/customizer.php:256 inc/customizer.php:280
+#: inc/customizer.php:347
+msgid "Yes"
+msgstr "Да"
+
+#: inc/customizer.php:169 inc/customizer.php:257 inc/customizer.php:281
+#: inc/customizer.php:348
+msgid "No"
+msgstr "Нет"
+
+#: inc/customizer.php:179
+msgid "Excerpt word count"
+msgstr "Ограничить количеством слов"
+
+#: inc/customizer.php:191
+msgid "Read More button text"
+msgstr "Кнопка Подробнее"
+
+#: inc/customizer.php:201
+msgid "Display Controls"
+msgstr "Показать элементы управления"
+
+#: inc/customizer.php:212
+msgid "Post author name in byline"
+msgstr "Опубликовать имя автора"
+
+#: inc/customizer.php:216 inc/customizer.php:232 inc/customizer.php:328
+msgid "Show"
+msgstr "Показать"
+
+#: inc/customizer.php:217 inc/customizer.php:233 inc/customizer.php:329
+msgid "Hide"
+msgstr "Убрать"
+
+#: inc/customizer.php:228
+msgid "Post date in byline"
+msgstr "Опубликовать дату"
+
+#: inc/customizer.php:241
+msgid "Scroll-to-Top Arrow"
+msgstr "Указатель наверх страницы"
+
+#: inc/customizer.php:251
+msgid "Display Scroll-to-top arrow?"
+msgstr "Показывать указатель наверх страницы?"
+
+#: inc/customizer.php:265
+msgid "Additional Options"
+msgstr "Дополнительные опции"
+
+#: inc/customizer.php:275
+msgid "Display the date each post was last updated?"
+msgstr "Показывать дату последнего изменения для кажлго поста?"
+
+#: inc/customizer.php:301
+msgid "Custom CSS"
+msgstr "Свой CSS"
+
+#: inc/customizer.php:312
+msgid "Add Custom CSS Here:"
+msgstr "Добавьте свой CSS здесь:"
+
+#: inc/last-updated-meta-box.php:12
+msgid "Last Updated Date"
+msgstr "Дата последнего редактирования"
+
+#: inc/last-updated-meta-box.php:29
+msgid "Use Customizer setting"
+msgstr "Использовать персональные настройки"
+
+#: inc/last-updated-meta-box.php:32
+msgid "Show the date"
+msgstr "Показывать  дату"
+
+#: inc/last-updated-meta-box.php:36
+msgid "Don't show the date"
+msgstr "Не показывать дату"
+
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr "Нажмите сюда чтобы оставить ваш обзор"
+
+#: search.php:11
+msgid "No search results for \"%s\""
+msgstr "Нет результатов по запросу \"%s\""
+
+#: search.php:35
+msgid "Can't find what you're looking for?  Try refining your search:"
+msgstr "Не можете ничего найти? Попробуйте изменить поисковый запрос:"
+
+#: searchform.php:6
+msgid "Search for..."
+msgstr "Искать..."
+
+#: searchform.php:7
+msgid "Go"
+msgstr "Перейти"
+
+#: sidebar-primary.php:4
+msgid "Sidebar"
+msgstr "Сайдбар"
+
+#: theme-options.php:4 theme-options.php:20
+msgid "%s Dashboard"
+msgstr "%s Дашборд"
+
+#. Description of the plugin/theme
+msgid ""
+"Cele is a refreshingly simple and clean theme. It’s been carefully designed "
+"to look and perform great across mobile devices, computers, and tablets. Use "
+"this responsive blogging theme for a personal journal, podcast, music review "
+"site, or even a travel blog. Thanks to the minimalist and professional "
+"design, Cele is also appropriate for corporate business blog websites. Cele "
+"is also fully compatible with the new Gutenberg post editor. Preview Cele "
+"now on desktop, tablets, and mobile with the interactive live demo: https://"
+"www.competethemes.com/demos/?theme=cele"
+msgstr ""
+"Celeобновляемая простая и чистая тема. Она была разработана, чтобы "
+"максимально читаемо отображать информацию на любых устройствах. Используйте "
+"эту тему для своего блога, подкаста, сайта обзоров. Благодаря "
+"профессиональному минималистичному дизайну, Cele также подходит для "
+"корпоративного блога. Cele полностью совместима Gutenberg редактором. "
+"Посмотрите, как выглядит Суду на ПК, планшете и других гаджетах  на "
+"интерактивном демо: https://www.competethemes.com/demos/?theme=cele"
+
+#: comments.php:12 comments.php:32 comments.php:54 content/comments-link.php:5
+#: content/comments-link.php:8
+msgctxt "noun: 5 comments"
+msgid "% Comments"
+msgstr "% Комментариев"
+
+#: content/archive-header.php:8
+msgctxt "noun: Site Title's Posts"
+msgid "Posts"
+msgstr "Записей"
+
+#: content/post-byline.php:15
+msgctxt "This blog post was published on some date"
+msgid "Published %s"
+msgstr "Опубликовано %s"
+
+#: content/post-byline.php:17
+msgctxt "This blog post was published by some author"
+msgid "Published by %s"
+msgstr "Опубликовано %s"
+
+#: content/post-byline.php:19
+msgctxt "This blog post was published on some date by some author"
+msgid "Published %1$s by %2$s"
+msgstr "Опубликовано %1$s  %2$s"
+
+#: content/post-categories.php:9
+msgctxt "Read more posts about post category"
+msgid "Read more posts about"
+msgstr "Прочитать больше записей о"
+
+#: content/post-categories.php:13
+msgctxt "category OR category"
+msgid "or"
+msgstr "или"
+
+#: content/post-categories.php:15
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr "Посмотреть все записи в %s"
+
+#: functions.php:151
+msgctxt "verb: reply to this comment"
+msgid "Reply"
+msgstr "Ответить"
+
+#: functions.php:156
+msgctxt "verb: reply to this comment"
+msgid "Edit"
+msgstr "Редактировать"
+
+#: functions.php:173
+msgctxt "noun"
+msgid "Name"
+msgstr "Имя"
+
+#: functions.php:180
+msgctxt "noun"
+msgid "Email"
+msgstr "Email"
+
+#: functions.php:209
+msgctxt "noun"
+msgid "Comment"
+msgstr "Комментарий"
+
+#: functions.php:446 functions.php:447
+msgctxt "noun"
+msgid "email"
+msgstr "email"
+
+#: functions.php:498 header.php:25 inc/scripts.php:16
+msgctxt "verb: open the menu"
+msgid "open menu"
+msgstr "открыть меню"
+
+#: inc/customizer.php:153
+msgctxt "noun: the blog section"
+msgid "Blog"
+msgstr "Блог"
+
+#: inc/scripts.php:17
+msgctxt "verb: close the menu"
+msgid "close menu"
+msgstr "закрыть меню"
+
+#: inc/scripts.php:18
+msgctxt "verb: open the dropdown menu"
+msgid "open dropdown menu"
+msgstr "открыть выпадающее меню"
+
+#: inc/scripts.php:19
+msgctxt "verb: close the dropdown menu"
+msgid "close dropdown menu"
+msgstr "закрыть выпадающее меню"

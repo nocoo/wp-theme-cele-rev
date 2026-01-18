@@ -1,0 +1,548 @@
+# Copyright (C) 2020 Compete Themes
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cele 1.25\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2020-08-19 15:01:29+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: 404.php:6
+msgid "404: Page Not Found"
+msgstr ""
+
+#: 404.php:9
+msgid ""
+"Looks like nothing was found on this url.  Double-check that the url is "
+"correct or try the search form below to find what you were looking for."
+msgstr ""
+
+#: comments.php:12 comments.php:32 comments.php:54
+msgid "Be First to Comment"
+msgstr ""
+
+#: comments.php:12 comments.php:32 comments.php:54
+msgid "One Comment"
+msgstr ""
+
+#: comments.php:46
+msgid ""
+"Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this "
+"post\">trackbacks</a> and pingbacks are open."
+msgstr ""
+
+#: comments.php:68 comments.php:85
+msgid "Comments are closed."
+msgstr ""
+
+#: content/comments-link.php:2
+msgid "comment icon"
+msgstr ""
+
+#: content/comments-link.php:5
+msgid "Comments closed"
+msgstr ""
+
+#: content/comments-link.php:5 content/comments-link.php:8
+msgid "1 Comment"
+msgstr ""
+
+#: content/comments-link.php:8
+msgid "Leave a Comment"
+msgstr ""
+
+#: content/post-nav-attachment.php:3
+msgid "Previous Image"
+msgstr ""
+
+#: content/post-nav-attachment.php:6
+msgid "Next Image"
+msgstr ""
+
+#: content/post-nav.php:7
+msgid "Previous Post"
+msgstr ""
+
+#: content/post-nav.php:10
+msgid "No Older Posts"
+msgstr ""
+
+#: content/post-nav.php:16 content/post-nav.php:29
+msgid "Return to Blog"
+msgstr ""
+
+#: content/post-nav.php:20
+msgid "Next Post"
+msgstr ""
+
+#: content/post-nav.php:23
+msgid "No Newer Posts"
+msgstr ""
+
+#: content/post-tags.php:8
+msgid "View all posts tagged %s"
+msgstr ""
+
+#: content/search-bar.php:11 searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: content/search-bar.php:12
+msgid "Search..."
+msgstr ""
+
+#: content/search-bar.php:13 searchform.php:5
+msgid "Search for:"
+msgstr ""
+
+#: content-page.php:11 content.php:13
+msgid "Pages:"
+msgstr ""
+
+#: footer.php:15
+msgid "<a href=\"%1$s\">%2$s Theme</a> by Compete Themes."
+msgstr ""
+
+#: functions.php:19
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Cele for a little while now. "
+"If you're happy with this theme, could you take a minute to leave a review? "
+"<i>You won't see this notice again after closing it.</i>"
+msgstr ""
+
+#: functions.php:52
+msgid "Primary"
+msgstr ""
+
+#: functions.php:71
+msgid "small"
+msgstr ""
+
+#: functions.php:72
+msgid "S"
+msgstr ""
+
+#: functions.php:77
+msgid "regular"
+msgstr ""
+
+#: functions.php:78
+msgid "M"
+msgstr ""
+
+#: functions.php:83
+msgid "large"
+msgstr ""
+
+#: functions.php:84
+msgid "L"
+msgstr ""
+
+#: functions.php:89
+msgid "larger"
+msgstr ""
+
+#: functions.php:90
+msgid "XL"
+msgstr ""
+
+#: functions.php:115
+msgid "Primary Sidebar"
+msgstr ""
+
+#: functions.php:117
+msgid ""
+"Widgets in this area will be shown in the sidebar next to the main post "
+"content"
+msgstr ""
+
+#: functions.php:143
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:167
+msgid "(optional)"
+msgstr ""
+
+#: functions.php:173
+msgid "Jane Doe"
+msgstr ""
+
+#: functions.php:180
+msgid "name@email.com"
+msgstr ""
+
+#: functions.php:186
+msgid "Website"
+msgstr ""
+
+#: functions.php:187
+msgid "http://google.com"
+msgstr ""
+
+#: functions.php:244 functions.php:308 inc/customizer.php:185
+msgid "Continue Reading"
+msgstr ""
+
+#: functions.php:518
+msgid "Featured"
+msgstr ""
+
+#: functions.php:580
+msgid "Customizer settings deleted."
+msgstr ""
+
+#: functions.php:729
+msgid "Scroll to the top"
+msgstr ""
+
+#: functions.php:748
+msgid "Last updated on"
+msgstr ""
+
+#: functions.php:764
+msgid "Previous"
+msgstr ""
+
+#: functions.php:765
+msgid "Next"
+msgstr ""
+
+#: header.php:17
+msgid "Press \"Enter\" to skip to content"
+msgstr ""
+
+#: inc/customizer.php:26
+msgid "Logo"
+msgstr ""
+
+#: inc/customizer.php:36
+msgid "Upload custom logo."
+msgstr ""
+
+#: inc/customizer.php:52
+msgid "Social Media Icons"
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Add the URL for each of your social profiles."
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "Email Address"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid "Phone"
+msgstr ""
+
+#: inc/customizer.php:88
+msgid "RSS"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "SoundCloud"
+msgstr ""
+
+#: inc/customizer.php:92
+msgid "SlideShare"
+msgstr ""
+
+#: inc/customizer.php:94
+msgid "CodePen"
+msgstr ""
+
+#: inc/customizer.php:96
+msgid "StumbleUpon"
+msgstr ""
+
+#: inc/customizer.php:98
+msgid "DeviantArt"
+msgstr ""
+
+#: inc/customizer.php:100
+msgid "Google Wallet"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Hacker News"
+msgstr ""
+
+#: inc/customizer.php:104
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/customizer.php:106
+msgid "QQ"
+msgstr ""
+
+#: inc/customizer.php:108
+msgid "VK"
+msgstr ""
+
+#: inc/customizer.php:110
+msgid "WeChat"
+msgstr ""
+
+#: inc/customizer.php:112
+msgid "Tencent Weibo"
+msgstr ""
+
+#: inc/customizer.php:114
+msgid "PayPal"
+msgstr ""
+
+#: inc/customizer.php:116
+msgid "Stack Overflow"
+msgstr ""
+
+#: inc/customizer.php:118
+msgid "OK.ru"
+msgstr ""
+
+#: inc/customizer.php:120
+msgid "ArtStation"
+msgstr ""
+
+#: inc/customizer.php:122
+msgid "Contact Form"
+msgstr ""
+
+#: inc/customizer.php:162
+msgid "Show full posts on blog?"
+msgstr ""
+
+#: inc/customizer.php:167 inc/customizer.php:287 inc/customizer.php:311
+#: inc/customizer.php:378
+msgid "Yes"
+msgstr ""
+
+#: inc/customizer.php:168 inc/customizer.php:288 inc/customizer.php:312
+#: inc/customizer.php:379
+msgid "No"
+msgstr ""
+
+#: inc/customizer.php:178
+msgid "Excerpt word count"
+msgstr ""
+
+#: inc/customizer.php:190
+msgid "Read More button text"
+msgstr ""
+
+#: inc/customizer.php:200
+msgid "Display Controls"
+msgstr ""
+
+#: inc/customizer.php:211
+msgid "Post author name in byline"
+msgstr ""
+
+#: inc/customizer.php:215 inc/customizer.php:231 inc/customizer.php:247
+#: inc/customizer.php:263 inc/customizer.php:359
+msgid "Show"
+msgstr ""
+
+#: inc/customizer.php:216 inc/customizer.php:232 inc/customizer.php:248
+#: inc/customizer.php:264 inc/customizer.php:360
+msgid "Hide"
+msgstr ""
+
+#: inc/customizer.php:227
+msgid "Post date in byline"
+msgstr ""
+
+#: inc/customizer.php:243
+msgid "Post categories on blog page"
+msgstr ""
+
+#: inc/customizer.php:259
+msgid "Post tags on blog page"
+msgstr ""
+
+#: inc/customizer.php:272
+msgid "Scroll-to-Top Arrow"
+msgstr ""
+
+#: inc/customizer.php:282
+msgid "Display Scroll-to-top arrow?"
+msgstr ""
+
+#: inc/customizer.php:296
+msgid "Additional Options"
+msgstr ""
+
+#: inc/customizer.php:306
+msgid "Display the date each post was last updated?"
+msgstr ""
+
+#: inc/customizer.php:332
+msgid "Custom CSS"
+msgstr ""
+
+#: inc/customizer.php:343
+msgid "Add Custom CSS Here:"
+msgstr ""
+
+#: inc/last-updated-meta-box.php:12
+msgid "Last Updated Date"
+msgstr ""
+
+#: inc/last-updated-meta-box.php:29
+msgid "Use Customizer setting"
+msgstr ""
+
+#: inc/last-updated-meta-box.php:32
+msgid "Show the date"
+msgstr ""
+
+#: inc/last-updated-meta-box.php:36
+msgid "Don't show the date"
+msgstr ""
+
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr ""
+
+#: search.php:11
+msgid "No search results for \"%s\""
+msgstr ""
+
+#: search.php:35
+msgid "Can't find what you're looking for?  Try refining your search:"
+msgstr ""
+
+#: searchform.php:6
+msgid "Search for..."
+msgstr ""
+
+#: searchform.php:7
+msgid "Go"
+msgstr ""
+
+#: sidebar-primary.php:4
+msgid "Sidebar"
+msgstr ""
+
+#: theme-options.php:5 theme-options.php:6 theme-options.php:19
+msgid "%s Dashboard"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Cele is a refreshingly simple and clean theme. It’s been carefully designed "
+"to look and perform great across mobile devices, computers, and tablets. "
+"Use this responsive blogging theme for a personal journal, podcast, music "
+"review site, or even a travel blog. Thanks to the minimalist and "
+"professional design, Cele is also appropriate for corporate business blog "
+"websites. Cele is also fully compatible with the new Gutenberg post editor. "
+"Preview Cele now on desktop, tablets, and mobile with the interactive live "
+"demo: https://www.competethemes.com/demos/?theme=cele"
+msgstr ""
+
+#: comments.php:12 comments.php:32 comments.php:54 content/comments-link.php:5
+#: content/comments-link.php:8
+msgctxt "noun: 5 comments"
+msgid "% Comments"
+msgstr ""
+
+#: content/archive-header.php:8
+msgctxt "noun: Site Title's Posts"
+msgid "Posts"
+msgstr ""
+
+#: content/post-byline.php:15
+msgctxt "This blog post was published on some date"
+msgid "Published %s"
+msgstr ""
+
+#: content/post-byline.php:17
+msgctxt "This blog post was published by some author"
+msgid "Published by %s"
+msgstr ""
+
+#: content/post-byline.php:19
+msgctxt "This blog post was published on some date by some author"
+msgid "Published %1$s by %2$s"
+msgstr ""
+
+#: content/post-categories.php:9
+msgctxt "Read more posts about post category"
+msgid "Read more posts about"
+msgstr ""
+
+#: content/post-categories.php:13
+msgctxt "category OR category"
+msgid "or"
+msgstr ""
+
+#: content/post-categories.php:15 content-archive.php:23
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr ""
+
+#: content-archive.php:36
+msgctxt "View all posts in post tag"
+msgid "View all posts tagged %s"
+msgstr ""
+
+#: functions.php:150
+msgctxt "verb: reply to this comment"
+msgid "Reply"
+msgstr ""
+
+#: functions.php:155
+msgctxt "verb: reply to this comment"
+msgid "Edit"
+msgstr ""
+
+#: functions.php:172
+msgctxt "noun"
+msgid "Name"
+msgstr ""
+
+#: functions.php:179
+msgctxt "noun"
+msgid "Email"
+msgstr ""
+
+#: functions.php:208
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: functions.php:453 functions.php:454
+msgctxt "noun"
+msgid "email"
+msgstr ""
+
+#: functions.php:505 header.php:35 inc/scripts.php:17
+msgctxt "verb: open the menu"
+msgid "open menu"
+msgstr ""
+
+#: inc/customizer.php:152
+msgctxt "noun: the blog section"
+msgid "Blog"
+msgstr ""
+
+#: inc/scripts.php:18
+msgctxt "verb: close the menu"
+msgid "close menu"
+msgstr ""
+
+#: inc/scripts.php:19
+msgctxt "verb: open the dropdown menu"
+msgid "open dropdown menu"
+msgstr ""
+
+#: inc/scripts.php:20
+msgctxt "verb: close the dropdown menu"
+msgid "close dropdown menu"
+msgstr ""
