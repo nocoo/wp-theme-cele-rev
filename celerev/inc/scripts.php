@@ -3,15 +3,6 @@
 // Front-end scripts
 function ct_cele_load_scripts_styles() {
 
-	$font_args = array(
-		'family' 	=> urlencode( 'Open Sans:300,300i,600' ),
-		'subset' 	=> urlencode( 'latin,latin-ext' ),
-		'display' => 'swap'
-	);
-	$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
-
-	wp_enqueue_style( 'ct-cele-google-fonts', $fonts_url );
-
 	wp_enqueue_script( 'ct-cele-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 	wp_localize_script( 'ct-cele-js', 'ct_cele_objectL10n', array(
 		'openMenu'       => esc_html_x( 'open menu', 'verb: open the menu', 'celerev' ),
@@ -38,14 +29,7 @@ function ct_cele_enqueue_admin_styles( $hook ) {
 		wp_enqueue_style( 'ct-cele-admin-styles', get_template_directory_uri() . '/styles/admin.min.css' );
 	}
 	if ( $hook == 'post.php' || $hook == 'post-new.php' ) {
-
-		$font_args = array(
-			'family' => urlencode( 'Open Sans:300,300i,600' ),
-			'subset' => urlencode( 'latin,latin-ext' )
-		);
-		$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
-	
-		wp_enqueue_style( 'ct-cele-google-fonts', $fonts_url );
+		// System fonts only - no Google Fonts
 	}
 }
 add_action( 'admin_enqueue_scripts', 'ct_cele_enqueue_admin_styles' );

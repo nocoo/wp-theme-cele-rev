@@ -101,7 +101,7 @@ body {
   font-size: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 300;
   background: #F0F0F0;
@@ -286,7 +286,7 @@ a:hover, a:active, a:focus {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -468,7 +468,7 @@ input[type=url],
 textarea {
   font-weight: 300;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   padding: 8px 12px;
   max-width: 27.75em;
   background: #FAFAFA;
@@ -500,7 +500,7 @@ textarea {
 
 input[type=submit] {
   font-weight: 300;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   padding: 8px 16px;
   min-width: 7.5em;
   color: #333333;

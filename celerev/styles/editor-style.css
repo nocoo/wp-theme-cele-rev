@@ -51,14 +51,14 @@ h2 {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased !important;
   background: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   max-width: 755px;
 }
 
 body {
   font-size: 16px;
   line-height: 1.5;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   font-weight: 300;
   color: #333333;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -99,7 +99,7 @@ a:visited:hover, a:visited:active, a:visited:focus {
 }
 
 h1, .editor-post-title textarea, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -300,7 +300,7 @@ img figcaption,
   color: #333333;
   outline: none;
   padding: 19px;
-  font-family: "Open Sans", sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
 }
 
 .wp-block[data-align=wide],
