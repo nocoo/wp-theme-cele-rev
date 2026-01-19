@@ -7,7 +7,35 @@ require_once(trailingslashit(get_template_directory()) . 'inc/customizer.php');
 require_once(trailingslashit(get_template_directory()) . 'inc/last-updated-meta-box.php');
 require_once(trailingslashit(get_template_directory()) . 'inc/scripts.php');
 
-if (! function_exists(('ct_cele_set_content_width'))) {
+//----------------------------------------------------------------------------------
+// Theme Mod Cache - Performance optimization
+//----------------------------------------------------------------------------------
+// Cache all theme_mod values in one query to avoid N+1 query problems
+if (! function_exists('ct_cele_get_theme_mods_cached')) {
+    function ct_cele_get_theme_mods_cached()
+    {
+        static $cached_mods = null;
+
+        if ($cached_mods === null) {
+            // Get all theme mods at once - WordPress caches this internally
+            $all_mods = get_theme_mods();
+            $cached_mods = $all_mods ? $all_mods : array();
+        }
+
+        return $cached_mods;
+    }
+}
+
+// Wrapper function to get a single theme mod from cache
+if (! function_exists('ct_cele_get_mod')) {
+    function ct_cele_get_mod($key, $default = false)
+    {
+        $mods = ct_cele_get_theme_mods_cached();
+        return isset($mods[$key]) ? $mods[$key] : $default;
+    }
+}
+
+if (! function_exists('ct_cele_set_content_width')) {
     function ct_cele_set_content_width()
     {
         if (! isset($content_width)) {
@@ -17,7 +45,7 @@ if (! function_exists(('ct_cele_set_content_width'))) {
 }
 add_action('after_setup_theme', 'ct_cele_set_content_width', 0);
 
-if (! function_exists(('ct_cele_theme_setup'))) {
+if (! function_exists('ct_cele_theme_setup')) {
     function ct_cele_theme_setup()
     {
         add_theme_support('post-thumbnails');
@@ -97,7 +125,7 @@ if (! function_exists('ct_cele_add_editor_styles')) {
 }
 add_action('admin_init', 'ct_cele_add_editor_styles');
 
-if (! function_exists(('ct_cele_register_widget_areas'))) {
+if (! function_exists('ct_cele_register_widget_areas')) {
     function ct_cele_register_widget_areas()
     {
         register_sidebar(array(
@@ -113,7 +141,7 @@ if (! function_exists(('ct_cele_register_widget_areas'))) {
 }
 add_action('widgets_init', 'ct_cele_register_widget_areas');
 
-if (! function_exists(('ct_cele_customize_comments'))) {
+if (! function_exists('ct_cele_customize_comments')) {
     function ct_cele_customize_comments($comment, $args, $depth)
     {
         $GLOBALS['comment'] = $comment;
@@ -157,22 +185,22 @@ if (! function_exists('ct_cele_update_fields')) {
 
         $fields['author'] =
             '<p class="comment-form-author">
-	            <label for="author">' . esc_html_x("Name", "noun", "cele") . $label . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . esc_attr__("Jane Doe", "cele") . '" value="' . esc_attr($commenter['comment_author']) .
+	            <label for="author">' . esc_html_x("Name", "noun", "celerev") . $label . '</label>
+	            <input id="author" name="author" type="text" placeholder="' . esc_attr__("Jane Doe", "celerev") . '" value="' . esc_attr($commenter['comment_author']) .
             '" size="30" ' . $aria_req . ' />
 	        </p>';
 
         $fields['email'] =
             '<p class="comment-form-email">
-	            <label for="email">' . esc_html_x("Email", "noun", "cele") . $label . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . esc_attr__("name@email.com", "cele") . '" value="' . esc_attr($commenter['comment_author_email']) .
+	            <label for="email">' . esc_html_x("Email", "noun", "celerev") . $label . '</label>
+	            <input id="email" name="email" type="email" placeholder="' . esc_attr__("name@email.com", "celerev") . '" value="' . esc_attr($commenter['comment_author_email']) .
             '" size="30" ' . $aria_req . ' />
 	        </p>';
 
         $fields['url'] =
             '<p class="comment-form-url">
-	            <label for="url">' . esc_html__("Website", "cele") . '</label>
-	            <input id="url" name="url" type="url"  placeholder="' . esc_attr__("http://google.com", "cele") . '" value="' . esc_attr($commenter['comment_author_url']) .
+	            <label for="url">' . esc_html__("Website", "celerev") . '</label>
+	            <input id="url" name="url" type="url"  placeholder="' . esc_attr__("http://google.com", "celerev") . '" value="' . esc_attr($commenter['comment_author_url']) .
             '" size="30" />
 	            </p>';
 
@@ -193,7 +221,7 @@ if (! function_exists('ct_cele_update_comment_field')) {
 
         $comment_field =
             '<p class="comment-form-comment">
-	            <label for="comment">' . esc_html_x("Comment", "noun", "cele") . '</label>
+	            <label for="comment">' . esc_html_x("Comment", "noun", "celerev") . '</label>
 	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 	        </p>';
 
@@ -409,79 +437,90 @@ if (! function_exists('ct_cele_social_array')) {
 if (! function_exists('ct_cele_social_icons_output')) {
     function ct_cele_social_icons_output()
     {
+        // Icon class mapping - optimization #3
+        $icon_classes = array(
+            'rss'         => 'fas fa-rss',
+            'email-form'  => 'far fa-envelope',
+            'podcast'     => 'fas fa-podcast',
+            'ok-ru'       => 'fab fa-odnoklassniki',
+            'wechat'      => 'fab fa-weixin',
+            'pocket'      => 'fab fa-get-pocket',
+            'phone'       => 'fas fa-phone',
+            'twitter'     => 'fab fa-x-twitter',
+        );
+
         $social_sites = ct_cele_social_array();
 
+        // PERFORMANCE: Get all theme mods at once from cache
+        $cached_mods = ct_cele_get_theme_mods_cached();
+
+        // Filter to only active sites - using cached values
+        $active_sites = array();
         foreach ($social_sites as $social_site => $profile) {
-            if (strlen(get_theme_mod($social_site)) > 0) {
-                $active_sites[ $social_site ] = $social_site;
+            if (!empty($cached_mods[$social_site])) {
+                $active_sites[$social_site] = $social_site;
             }
         }
 
-        if (! empty($active_sites)) {
-            echo "<ul class='social-media-icons'>";
-
-            foreach ($active_sites as $key => $active_site) {
-                if ($active_site == 'rss') {
-                    $class = 'fas fa-rss';
-                } elseif ($active_site == 'email-form') {
-                    $class = 'far fa-envelope';
-                } elseif ($active_site == 'podcast') {
-                    $class = 'fas fa-podcast';
-                } elseif ($active_site == 'ok-ru') {
-                    $class = 'fab fa-odnoklassniki';
-                } elseif ($active_site == 'wechat') {
-                    $class = 'fab fa-weixin';
-                } elseif ($active_site == 'pocket') {
-                    $class = 'fab fa-get-pocket';
-                } elseif ($active_site == 'phone') {
-                    $class = 'fas fa-phone';
-                } elseif ($active_site == 'twitter') {
-                    $class = 'fab fa-x-twitter';
-                } else {
-                    $class = 'fab fa-' . $active_site;
-                }
-
-                echo '<li>';
-                if ($active_site == 'email') { ?>
-					<a class="email" target="_blank"
-					   href="mailto:<?php echo antispambot(is_email(get_theme_mod($key))); ?>">
-						<i class="fas fa-envelope" title="<?php echo esc_attr_x('email', 'noun', 'celerev'); ?>"></i>
-						<span class="screen-reader-text"><?php echo esc_attr_x('email', 'noun', 'celerev'); ?></span>
-					</a>
-				<?php } elseif ($active_site == 'skype') { ?>
-					<a class="<?php echo esc_attr($active_site); ?>" target="_blank"
-					   href="<?php echo esc_url(get_theme_mod($key), array( 'http', 'https', 'skype' )); ?>">
-						<i class="<?php echo esc_attr($class); ?>"
-						   title="<?php echo esc_attr($active_site); ?>"></i>
-						<span class="screen-reader-text"><?php echo esc_html($active_site);  ?></span>
-					</a>
-				<?php } elseif ($active_site == 'phone') { ?>
-					<a class="<?php echo esc_attr($active_site); ?>" target="_blank"
-							href="<?php echo esc_url(get_theme_mod($active_site), array( 'tel' )); ?>">
-						<i class="<?php echo esc_attr($class); ?>"></i>
-						<span class="screen-reader-text"><?php echo esc_html($active_site);  ?></span>
-					</a>
-                <?php } elseif ($active_site == 'social_icon_custom_1' || $active_site == 'social_icon_custom_2' || $active_site == 'social_icon_custom_3') { ?>
-						<li>
-							<a class="custom-icon" target="_blank"
-							href="<?php echo esc_url(get_theme_mod($active_site)); ?>">
-							<img class="icon" src="<?php echo esc_url(get_theme_mod($active_site .'_image')); ?>" style="width: <?php echo absint(get_theme_mod($active_site . '_size')); ?>px;" />
-								<span class="screen-reader-text"><?php echo esc_html($active_site);  ?></span>
-							</a>
-						</li>
-					<?php } else { ?>
-					<a class="<?php echo esc_attr($active_site); ?>" target="_blank"
-					   href="<?php echo esc_url(get_theme_mod($key)); ?>">
-						<i class="<?php echo esc_attr($class); ?>"
-						   title="<?php echo esc_attr($active_site); ?>"></i>
-						<span class="screen-reader-text"><?php echo esc_html($active_site);  ?></span>
-					</a>
-					<?php
-					}
-                echo '</li>';
-            }
-            echo "</ul>";
+        if (empty($active_sites)) {
+            return;
         }
+
+        echo "<ul class='social-media-icons'>";
+
+        foreach ($active_sites as $key => $active_site) {
+            // Get icon class from mapping or use default - optimization #3
+            $class = isset($icon_classes[$active_site]) ? $icon_classes[$active_site] : 'fab fa-' . $active_site;
+
+            echo '<li>';
+
+            // Email - special handling
+            if ($active_site == 'email') {
+                $email = antispambot(is_email($cached_mods[$key]));
+                echo '<a class="email" target="_blank" href="mailto:' . esc_attr($email) . '">';
+                echo '<i class="fas fa-envelope" title="' . esc_attr_x('email', 'noun', 'celerev') . '"></i>';
+                echo '<span class="screen-reader-text">' . esc_html_x('email', 'noun', 'celerev') . '</span>';
+                echo '</a>';
+            }
+            // Skype - special protocol
+            elseif ($active_site == 'skype') {
+                $href = esc_url($cached_mods[$key], array('http', 'https', 'skype'));
+                echo '<a class="' . esc_attr($active_site) . '" target="_blank" href="' . $href . '">';
+                echo '<i class="' . esc_attr($class) . '" title="' . esc_attr($active_site) . '"></i>';
+                echo '<span class="screen-reader-text">' . esc_html($active_site) . '</span>';
+                echo '</a>';
+            }
+            // Phone - tel protocol
+            elseif ($active_site == 'phone') {
+                $href = esc_url($cached_mods[$active_site], array('tel'));
+                echo '<a class="' . esc_attr($active_site) . '" target="_blank" href="' . $href . '">';
+                echo '<i class="' . esc_attr($class) . '"></i>';
+                echo '<span class="screen-reader-text">' . esc_html($active_site) . '</span>';
+                echo '</a>';
+            }
+            // Custom icons - image based
+            elseif (strpos($active_site, 'social_icon_custom') === 0) {
+                $href = esc_url($cached_mods[$active_site]);
+                $img_src = esc_url($cached_mods[$active_site . '_image']);
+                $img_size = absint($cached_mods[$active_site . '_size']);
+                echo '<a class="custom-icon" target="_blank" href="' . $href . '">';
+                echo '<img class="icon" src="' . $img_src . '" style="width: ' . $img_size . 'px;" />';
+                echo '<span class="screen-reader-text">' . esc_html($active_site) . '</span>';
+                echo '</a>';
+            }
+            // Standard social icons
+            else {
+                $href = esc_url($cached_mods[$key]);
+                echo '<a class="' . esc_attr($active_site) . '" target="_blank" href="' . $href . '">';
+                echo '<i class="' . esc_attr($class) . '" title="' . esc_attr($active_site) . '"></i>';
+                echo '<span class="screen-reader-text">' . esc_html($active_site) . '</span>';
+                echo '</a>';
+            }
+
+            echo '</li>';
+        }
+
+        echo "</ul>";
     }
 }
 
@@ -489,24 +528,24 @@ if (! function_exists('ct_cele_social_icons_output')) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling difficult and confusing. Using this wrapper to add a unique class to make styling easier.
  */
-if (! function_exists(('ct_cele_wp_page_menu'))) {
+if (! function_exists('ct_cele_wp_page_menu')) {
     function ct_cele_wp_page_menu()
     {
         wp_page_menu(
             array(
                 "menu_class" => "menu-unset",
-                "depth"      => - 1
+                "depth"      => -1
             )
         );
     }
 }
 
-if (! function_exists(('ct_cele_nav_dropdown_buttons'))) {
+if (! function_exists('ct_cele_nav_dropdown_buttons')) {
     function ct_cele_nav_dropdown_buttons($item_output, $item, $depth, $args)
     {
         if ($args->theme_location == 'primary') {
             if (in_array('menu-item-has-children', $item->classes) || in_array('page_item_has_children', $item->classes)) {
-                $item_output = str_replace($args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x("open menu", "verb: open the menu", "cele") . '</span><i class="fas fa-angle-down"></i></button>', $item_output);
+                $item_output = str_replace($args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x("open menu", "verb: open the menu", "celerev") . '</span><i class="fas fa-angle-down"></i></button>', $item_output);
             }
         }
 
@@ -515,17 +554,17 @@ if (! function_exists(('ct_cele_nav_dropdown_buttons'))) {
 }
 add_filter('walker_nav_menu_start_el', 'ct_cele_nav_dropdown_buttons', 10, 4);
 
-if (! function_exists(('ct_cele_sticky_post_marker'))) {
+if (! function_exists('ct_cele_sticky_post_marker')) {
     function ct_cele_sticky_post_marker()
     {
         if (is_sticky() && !is_archive() && !is_search()) {
-            echo '<div class="sticky-status"><span>' . esc_html__("Featured", "cele") . '</span></div>';
+            echo '<div class="sticky-status"><span>' . esc_html__("Featured", "celerev") . '</span></div>';
         }
     }
 }
 add_action('ct_cele_sticky_post_status', 'ct_cele_sticky_post_marker');
 
-if (! function_exists(('ct_cele_reset_customizer_options'))) {
+if (! function_exists('ct_cele_reset_customizer_options')) {
     function ct_cele_reset_customizer_options()
     {
         if (empty($_POST['cele_reset_customizer']) || 'cele_reset_customizer_settings' !== $_POST['cele_reset_customizer']) {
@@ -573,7 +612,7 @@ if (! function_exists(('ct_cele_reset_customizer_options'))) {
 }
 add_action('admin_init', 'ct_cele_reset_customizer_options');
 
-if (! function_exists(('ct_cele_delete_settings_notice'))) {
+if (! function_exists('ct_cele_delete_settings_notice')) {
     function ct_cele_delete_settings_notice()
     {
         if (isset($_GET['cele_status'])) {
@@ -589,13 +628,13 @@ if (! function_exists(('ct_cele_delete_settings_notice'))) {
 }
 add_action('admin_notices', 'ct_cele_delete_settings_notice');
 
-if (! function_exists(('ct_cele_body_class'))) {
+if (! function_exists('ct_cele_body_class')) {
     function ct_cele_body_class($classes)
     {
-        global $post;
-        $full_post = get_theme_mod('full_post');
+        // PERFORMANCE: Use cached value
+        $full_post = ct_cele_get_mod('full_post');
 
-        if ($full_post == 'yes') {
+        if ($full_post === 'yes') {
             $classes[] = 'full-post';
         }
 
@@ -604,7 +643,7 @@ if (! function_exists(('ct_cele_body_class'))) {
 }
 add_filter('body_class', 'ct_cele_body_class');
 
-if (! function_exists(('ct_cele_post_class'))) {
+if (! function_exists('ct_cele_post_class')) {
     function ct_cele_post_class($classes)
     {
         $classes[] = 'entry';
@@ -614,7 +653,7 @@ if (! function_exists(('ct_cele_post_class'))) {
 }
 add_filter('post_class', 'ct_cele_post_class');
 
-if (! function_exists(('ct_cele_custom_css_output'))) {
+if (! function_exists('ct_cele_custom_css_output')) {
     function ct_cele_custom_css_output()
     {
         if (function_exists('wp_get_custom_css')) {
@@ -633,7 +672,7 @@ if (! function_exists(('ct_cele_custom_css_output'))) {
 }
 add_action('wp_enqueue_scripts', 'ct_cele_custom_css_output', 20);
 
-if (! function_exists(('ct_cele_svg_output'))) {
+if (! function_exists('ct_cele_svg_output')) {
     function ct_cele_svg_output($type)
     {
         $svg = '';
@@ -658,7 +697,7 @@ if (! function_exists(('ct_cele_svg_output'))) {
     }
 }
 
-if (! function_exists(('ct_cele_add_meta_elements'))) {
+if (! function_exists('ct_cele_add_meta_elements')) {
     function ct_cele_add_meta_elements()
     {
         $meta_elements = '';
@@ -671,7 +710,7 @@ if (! function_exists(('ct_cele_add_meta_elements'))) {
 }
 add_action('wp_head', 'ct_cele_add_meta_elements', 1);
 
-if (! function_exists(('ct_cele_infinite_scroll_render'))) {
+if (! function_exists('ct_cele_infinite_scroll_render')) {
     function ct_cele_infinite_scroll_render()
     {
         while (have_posts()) {
@@ -731,7 +770,7 @@ function ct_cele_scroll_to_top_arrow()
 {
     $setting = get_theme_mod('scroll_to_top');
 
-    if ($setting == 'yes') {
+    if ($setting === 'yes') {
         echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'celerev') .'</span><i class="fas fa-arrow-up"></i></button>';
     }
 }
@@ -748,10 +787,10 @@ function ct_cele_output_last_updated_date()
         $updated_post = get_post_meta($post->ID, 'ct_cele_last_updated', true);
         $updated_customizer = get_theme_mod('last_updated');
         if (
-            ($updated_customizer == 'yes' && ($updated_post != 'no'))
-            || $updated_post == 'yes'
+            ($updated_customizer === 'yes' && $updated_post !== 'no')
+            || $updated_post === 'yes'
         ) {
-            echo '<p class="last-updated">'. esc_html__("Last updated on", "cele") . ' ' . get_the_modified_date() . ' </p>';
+            echo '<p class="last-updated">'. esc_html__("Last updated on", "celerev") . ' ' . get_the_modified_date() . ' </p>';
         }
     }
 }
@@ -770,6 +809,66 @@ function ct_cele_pagination()
     'prev_text' => esc_html__('Previous', 'celerev'),
     'next_text' => esc_html__('Next', 'celerev')
     ));
+}
+
+//----------------------------------------------------------------------------------
+// Output categories on blog page - optimization #4
+//----------------------------------------------------------------------------------
+if (! function_exists('ct_cele_output_blog_categories')) {
+    function ct_cele_output_blog_categories()
+    {
+        // PERFORMANCE: Use cached value
+        if (ct_cele_get_mod('display_post_categories_blog') !== 'show') {
+            return;
+        }
+
+        $categories = get_the_category();
+        if (empty($categories)) {
+            return;
+        }
+
+        echo '<p class="post-categories-blog">';
+        echo '<i class="far fa-folder"></i>';
+
+        foreach ($categories as $category) {
+            $url = esc_url(get_category_link($category->term_id));
+            $title = esc_attr(sprintf(esc_html_x("View all posts in %s", 'View all posts in post category', 'celerev'), $category->name));
+            $name = esc_html($category->cat_name);
+            echo '<a href="' . $url . '" title="' . $title . '">' . $name . '</a>';
+        }
+
+        echo '</p>';
+    }
+}
+
+//----------------------------------------------------------------------------------
+// Output tags on blog page - optimization #4
+//----------------------------------------------------------------------------------
+if (! function_exists('ct_cele_output_blog_tags')) {
+    function ct_cele_output_blog_tags()
+    {
+        // PERFORMANCE: Use cached value
+        if (ct_cele_get_mod('display_post_tags_blog') !== 'show') {
+            return;
+        }
+
+        $tags = get_the_tags();
+        if (empty($tags)) {
+            return;
+        }
+
+        echo '<p class="post-tags-blog">';
+        echo '<i class="fas fa-tag"></i>';
+
+        foreach ($tags as $tag) {
+            $url = esc_url(get_tag_link($tag->term_id));
+            $title = esc_attr(sprintf(esc_html_x("View all posts tagged %s", 'View all posts in post tag', 'celerev'), $tag->name));
+            $name = esc_html($tag->name);
+            echo '<a href="' . $url . '" title="' . $title . '">' . $name . '</a>';
+        }
+
+        echo '</p>';
+    }
 }
 
 //----------------------------------------------------------------------------------

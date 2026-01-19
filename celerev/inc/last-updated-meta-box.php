@@ -27,11 +27,11 @@ function ct_cele_last_updated_callback( $post ) {
 	<p>
 		<select name="cele-last-updated" id="cele-last-updated" style="box-sizing: border-box; width: 100%;">
 			<option value="default"><?php esc_html_e( 'Use Customizer setting', 'celerev' ); ?></option>
-			<option value="yes" <?php if ( $display == 'yes' ) {
+			<option value="yes" <?php if ( $display === 'yes' ) {
 				echo 'selected';
 			} ?>><?php esc_html_e( 'Show the date', 'celerev' ); ?>
 			</option>
-			<option value="no" <?php if ( $display == 'no' ) {
+			<option value="no" <?php if ( $display === 'no' ) {
 				echo 'selected';
 			} ?>><?php esc_html_e( "Don't show the date", 'celerev' ); ?>
 			</option>

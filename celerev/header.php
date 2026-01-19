@@ -12,7 +12,7 @@
 	<meta property="og:type" content="website">
 </head>
 
-<body id="<?php print get_stylesheet(); ?>" <?php body_class(); ?>>
+<body id="<?php echo get_stylesheet(); ?>" <?php body_class(); ?>>
 <?php do_action( 'ct_cele_body_top' ); ?>
 <?php 
 if ( function_exists( 'wp_body_open' ) ) {

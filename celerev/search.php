@@ -4,11 +4,11 @@
             <?php
             global $wp_query;
             $total_results = $wp_query->found_posts;
-            $s             = htmlentities( $s );
+            $search_query  = get_search_query();
             if ( $total_results ) {
-                printf( esc_html__(_n( '%1$d search result for "%2$s"', '%1$d search results for "%2$s"', $total_results, 'celerev' )), $total_results, $s );
+                printf( esc_html__(_n( '%1$d search result for "%2$s"', '%1$d search results for "%2$s"', $total_results, 'celerev' )), $total_results, esc_html( $search_query ) );
             } else {
-                printf( esc_html__( 'No search results for "%s"', 'celerev' ), $s );
+                printf( esc_html__( 'No search results for "%s"', 'celerev' ), esc_html( $search_query ) );
             }
             ?>
         </h1>
@@ -32,7 +32,7 @@ $total_results = $wp_query->found_posts;
 if ( $total_results ) {
     ?>
     <div class="search-bottom">
-        <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "cele" ); ?></p>
+        <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "celerev" ); ?></p>
         <?php get_search_form(); ?>
     </div>
 <?php }

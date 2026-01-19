@@ -1,5 +1,6 @@
 <?php
-if ( get_theme_mod( 'search_bar' ) != 'show' ) {
+// PERFORMANCE: Use cached value
+if ( ct_cele_get_mod( 'search_bar' ) !== 'show' ) {
 	return;
 }
 ?>

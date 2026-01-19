@@ -4,44 +4,35 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
     return;
 }
 
-if ( comments_open() ) { ?>
+// Helper function to output common comments structure
+function ct_cele_output_comments_list() {
+	?>
+    <div class="comments-number">
+        <h2>
+            <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
+        </h2>
+    </div>
+    <ol class="comment-list">
+        <?php wp_list_comments( array( 'callback' => 'ct_cele_customize_comments' ) ); ?>
+    </ol>
+    <?php
+    if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
+        <nav class="comment-pagination">
+            <p class="previous-comment"><?php previous_comments_link(); ?></p>
+            <p class="next-comment"><?php next_comments_link(); ?></p>
+        </nav>
+    <?php }
+}
 
+if ( comments_open() ) { ?>
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
-            </h2>
-        </div>
-        <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_cele_customize_comments' ) ); ?>
-        </ol>
-        <?php
-        if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
-            <nav class="comment-pagination">
-                <p class="previous-comment"><?php previous_comments_link(); ?></p>
-                <p class="next-comment"><?php next_comments_link(); ?></p>
-            </nav>
-        <?php } ?>
+        <?php ct_cele_output_comments_list(); ?>
         <?php comment_form(); ?>
     </section>
     <?php
 } elseif ( ! comments_open() && have_comments() && pings_open() ) { ?>
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
-            </h2>
-        </div>
-        <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_cele_customize_comments' ) ); ?>
-        </ol>
-        <?php
-        if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
-            <nav class="comment-pagination">
-                <p class="previous-comment"><?php previous_comments_link(); ?></p>
-                <p class="next-comment"><?php next_comments_link(); ?></p>
-            </nav>
-        <?php } ?>
+        <?php ct_cele_output_comments_list(); ?>
         <p class="comments-closed pings-open">
             <?php printf( __( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'celerev' ), esc_url( get_trackback_url() ) ); ?>
         </p>
@@ -49,28 +40,14 @@ if ( comments_open() ) { ?>
     <?php
 } elseif ( ! comments_open() && have_comments() ) { ?>
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
-            </h2>
-        </div>
-        <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_cele_customize_comments' ) ); ?>
-        </ol>
-        <?php
-        if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
-            <nav class="comment-pagination">
-                <p class="previous-comment"><?php previous_comments_link(); ?></p>
-                <p class="next-comment"><?php next_comments_link(); ?></p>
-            </nav>
-        <?php } ?>
+        <?php ct_cele_output_comments_list(); ?>
         <p class="comments-closed">
             <?php esc_html_e( 'Comments are closed.', 'celerev' ); ?>
         </p>
     </section>
     <?php
-} else { 
-	
+} else {
+
 	$output = true;
 
 	// don't output on WooCommerce pages like Cart and Checkout
