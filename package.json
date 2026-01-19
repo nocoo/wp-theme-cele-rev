@@ -6,7 +6,8 @@
   "scripts": {
     "build": "bun run build.ts",
     "dev": "bun run build.ts --watch",
-    "compare": "bun run scripts/compare.ts"
+    "compare": "bun run scripts/compare.ts",
+    "setup": "bun run scripts/install-hooks.sh"
   },
   "devDependencies": {
     "@types/node": "^20.10.0"

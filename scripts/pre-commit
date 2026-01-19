@@ -1,0 +1,20 @@
+#!/bin/bash
+# Pre-commit hook for CeleRev theme
+# Runs build before committing to ensure latest files
+
+set -e
+
+echo "Running pre-commit build..."
+
+# Run JS build
+bun run build
+
+# Run CSS minify
+bun run scripts/minify-css.ts
+
+# Add generated files to commit
+git add celerev/js/build/*.js
+git add celerev/*.min.css
+git add celerev/styles/*.min.css
+
+echo "Pre-commit build complete!"
