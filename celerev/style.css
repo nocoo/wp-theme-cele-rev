@@ -1767,12 +1767,13 @@ li.pingback.bypostauthor:before {
 }
 .social-media-icons a {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
   width: 36px;
   height: 36px;
-  line-height: 30px;
-  border: solid 1px #E6E6E6;
+  border: 1px solid #E6E6E6;
   border-radius: 50%;
   z-index: 9;
   color: #666666;
@@ -1797,11 +1798,11 @@ li.pingback.bypostauthor:before {
   color: white;
   outline: none;
 }
-.social-media-icons a:hover i::before,
-.social-media-icons a:hover .fas::before,
-.social-media-icons a:hover .far::before,
-.social-media-icons a:hover .fab::before {
-  filter: brightness(0) invert(1);
+.social-media-icons a:hover i,
+.social-media-icons a:hover .fas,
+.social-media-icons a:hover .far,
+.social-media-icons a:hover .fab {
+  color: white;
 }
 .social-media-icons a:hover:after, .social-media-icons a:active:after, .social-media-icons a:focus:after {
   -webkit-transform: scale(1);
