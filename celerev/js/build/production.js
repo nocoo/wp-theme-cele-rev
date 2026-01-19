@@ -1,4 +1,4 @@
-// ../../../../../private/tmp/production_with_fitvids_1768816486070.js
+// ../../../../../private/tmp/production_with_fitvids_1768818111122.js
 /*!
  * FitVids 1.1
  *
@@ -80,30 +80,34 @@ jQuery(document).ready(function($) {
   var sidebar = $("#main-sidebar");
   var sidebarPrimaryContainer = $("#sidebar-primary-container");
   var sidebarInner = $("#sidebar-inner");
+  var scrollToTopButton = $("#scroll-to-top");
+  var wpadminbar = $("#wpadminbar");
   var adminBar = 0;
-  if (body.hasClass("admin-bar")) {
+  var hasAdminBar = body.hasClass("admin-bar");
+  if (hasAdminBar) {
     adminBar = 32;
   }
   var adjustment = 24;
   var lastScrollTop = 0;
   var scrollTracking = false;
+  var resizeTimeout;
+  var scrollTicking = false;
   assignMenuItemDelays();
   setMainMinHeight();
   setupSidebar();
-  objectFitAdjustment();
   sidebarAdjustment();
   menuKeyboardAccess();
   toggleNavigation.on("click", openPrimaryMenu);
   toggleDropdown.on("click", openDropdownMenu);
   $(window).on("resize", function() {
-    objectFitAdjustment();
-    setupSidebar();
-    sidebarAdjustment();
-    setMainMinHeight();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      setupSidebar();
+      sidebarAdjustment();
+      setMainMinHeight();
+    }, 150);
   });
-  $(document.body).on("post-load", function() {
-    objectFitAdjustment();
-  });
+  $(document.body).on("post-load", function() {});
   $(".post-content").fitVids({
     customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
   });
@@ -114,12 +118,15 @@ jQuery(document).ready(function($) {
         sidebarAdjustment();
       } else {
         if (scrollTracking == false) {
-          $(window).on("scroll resize", positionSidebar);
+          $(window).on("scroll", positionSidebar);
           scrollTracking = true;
         }
       }
     } else {
-      scrollTracking = false;
+      if (scrollTracking) {
+        $(window).off("scroll", positionSidebar);
+        scrollTracking = false;
+      }
     }
   }
   function openPrimaryMenu() {
@@ -155,9 +162,10 @@ jQuery(document).ready(function($) {
       menuItem.addClass("open");
       $(this).children("span").text(ct_cele_objectL10n.closeMenu);
       $(this).attr("aria-expanded", "true");
+      var subMenuChildren = subMenu.children("li");
       var subMenuHeight = 0;
-      subMenu.children("li").each(function() {
-        subMenuHeight = subMenuHeight + $(this).height();
+      subMenuChildren.each(function() {
+        subMenuHeight += $(this).outerHeight();
       });
       subMenu.css("max-height", subMenuHeight);
       if (parentList.hasClass("sub-menu")) {
@@ -174,7 +182,7 @@ jQuery(document).ready(function($) {
     var counter = 0;
     menuPrimaryItems.find("ul").each(function() {
       $(this).children("li").each(function() {
-        $(this).css("transition-delay", "0." + counter + "s");
+        $(this).css("transition-delay", counter / 10 + "s");
         counter++;
       });
       counter = 0;
@@ -251,7 +259,7 @@ jQuery(document).ready(function($) {
     } else if (window.innerWidth >= 890) {
       adjustment = 0;
     }
-    if ($("#wpadminbar").length > 0) {
+    if (hasAdminBar || wpadminbar.length > 0) {
       adjustment += 32;
       if (sidebar.hasClass("fixed")) {
         sidebar.css("top", "32px");
@@ -272,39 +280,6 @@ jQuery(document).ready(function($) {
       main.css("min-height", sidebarHeight);
     }
   }
-  function objectFitAdjustment() {
-    if (!("object-fit" in document.body.style)) {
-      $(".featured-image").each(function() {
-        if (!$(this).parent().parent(".entry").hasClass("ratio-natural")) {
-          var image = $(this).children("img").add($(this).children("a").children("img"));
-          if (image.hasClass("no-object-fit")) {
-            return;
-          }
-          image.addClass("no-object-fit");
-          if (image.outerWidth() < $(this).outerWidth()) {
-            image.css({
-              width: "100%",
-              "min-width": "100%",
-              "max-width": "100%",
-              height: "auto",
-              "min-height": "100%",
-              "max-height": "none"
-            });
-          }
-          if (image.outerHeight() < $(this).outerHeight()) {
-            image.css({
-              height: "100%",
-              "min-height": "100%",
-              "max-height": "100%",
-              width: "auto",
-              "min-width": "100%",
-              "max-width": "none"
-            });
-          }
-        }
-      });
-    }
-  }
   function menuKeyboardAccess(listItem, status) {
     var tabindex = 0;
     if (status == "close") {
@@ -318,15 +293,21 @@ jQuery(document).ready(function($) {
       });
     }
   }
-  if ($("#scroll-to-top").length !== 0) {
+  if (scrollToTopButton.length !== 0) {
     $(window).on("scroll", function() {
-      if ($(this).scrollTop() >= 200) {
-        $("#scroll-to-top").addClass("visible");
-      } else {
-        $("#scroll-to-top").removeClass("visible");
+      if (!scrollTicking) {
+        window.requestAnimationFrame(function() {
+          if ($(window).scrollTop() >= 200) {
+            scrollToTopButton.addClass("visible");
+          } else {
+            scrollToTopButton.removeClass("visible");
+          }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
       }
-    });
-    $("#scroll-to-top").click(function(e) {
+    }, { passive: true });
+    scrollToTopButton.click(function(e) {
       $("body,html").animate({
         scrollTop: 0
       }, 600);
