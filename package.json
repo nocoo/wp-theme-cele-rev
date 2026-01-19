@@ -1,0 +1,14 @@
+{
+  "name": "celerev-theme",
+  "version": "1.0.0",
+  "description": "CeleRev WordPress Theme - Modern Build System",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build.ts",
+    "dev": "bun run build.ts --watch",
+    "compare": "bun run scripts/compare.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  }
+}
