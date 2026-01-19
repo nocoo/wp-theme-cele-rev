@@ -72,7 +72,7 @@ function ct_cele_options_content()
 						<div class="text">
 							<h4>Featured Videos</h4>
 							<p>Featured Videos are an easy way to share videos in place of Featured Images. Instantly embed a Youtube video by copying and pasting its URL into an input.</p>
-							<p>Cele Pro auto-embeds videos from Youtube, Vimeo, DailyMotion, Flickr, Animoto, TED, Blip, Cloudup, FunnyOrDie, Hulu, Vine, WordPress.tv, and VideoPress.</p>
+							<p>Cele Pro auto-embeds videos from Youtube, Vimeo, DailyMotion, Flickr, Animoto, TED, Blip, Cloudup, FunnyOrDie, Hulu, WordPress.tv, and VideoPress.</p>
 						</div>
 					</li>
 					<li>

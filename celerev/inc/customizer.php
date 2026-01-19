@@ -95,8 +95,6 @@ function ct_cele_add_customizer_content($wp_customize)
                 $label = __('SlideShare', 'celerev');
             } elseif ($social_site == 'codepen') {
                 $label = __('CodePen', 'celerev');
-            } elseif ($social_site == 'stumbleupon') {
-                $label = __('StumbleUpon', 'celerev');
             } elseif ($social_site == 'deviantart') {
                 $label = __('DeviantArt', 'celerev');
             } elseif ($social_site == 'google-wallet') {
