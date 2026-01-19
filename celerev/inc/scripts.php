@@ -20,7 +20,7 @@ function ct_cele_load_scripts_styles() {
 		'closeChildMenu' => esc_html_x( 'close dropdown menu', 'verb: close the dropdown menu', 'celerev' )
 	) );
 
-	wp_enqueue_style( 'ct-cele-font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css' );
+	wp_enqueue_style( 'ct-cele-icons', get_template_directory_uri() . '/assets/icons/icons.css' );
 
 	wp_enqueue_style( 'ct-cele-style', get_stylesheet_uri() );
 
