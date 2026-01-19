@@ -8,7 +8,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node
 import { join } from 'node:path';
 
 const SOURCE_DIR = join(import.meta.dir, 'celerev/js');
-const OUTPUT_DIR = join(import.meta.dir, 'celerev/build');
+const OUTPUT_DIR = join(import.meta.dir, 'celerev/js/build');
 
 // Ensure output directory exists
 if (!existsSync(OUTPUT_DIR)) {
