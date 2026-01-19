@@ -1337,6 +1337,27 @@ li.pingback.bypostauthor:before {
 .post-content iframe {
   max-width: 100%;
 }
+
+/* Responsive video embeds - replaces FitVids.js - optimization #5 */
+.post-content,
+.featured-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-content iframe,
+.post-content embed,
+.post-content object,
+.featured-media iframe,
+.featured-media embed,
+.featured-media object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 .post-content:after {
   content: ".";
   display: block;
