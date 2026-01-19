@@ -1799,6 +1799,7 @@ li.pingback.bypostauthor:before {
   vertical-align: middle;
   width: 36px;
   height: 36px;
+  line-height: 30px;
   border: 1px solid #E6E6E6;
   border-radius: 50%;
   z-index: 9;
