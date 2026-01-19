@@ -106,9 +106,7 @@ body {
   font-weight: 300;
   background: #F0F0F0;
   color: #333333;
-  -webkit-font-smoothing: subpixel-antialiased;
   word-wrap: break-word;
-  -ms-word-wrap: break-word;
 }
 
 .overflow-container {
@@ -286,7 +284,6 @@ a:hover, a:active, a:focus {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -436,12 +433,7 @@ img figcaption,
 .size-large figcaption,
 .size-medium figcaption,
 .size-thumbnail figcaption,
-.wp-block-image figcaption {
-  margin: 3px 0 0 0;
-  color: #333333;
-  text-align: center;
-}
-
+.wp-block-image figcaption,
 .wp-caption-text,
 .gallery-caption,
 .wp-caption-dd {
@@ -468,7 +460,6 @@ input[type=url],
 textarea {
   font-weight: 300;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
   padding: 8px 12px;
   max-width: 27.75em;
   background: #FAFAFA;
@@ -500,7 +491,6 @@ textarea {
 
 input[type=submit] {
   font-weight: 300;
-  font-family: "Open Sans", sans-serif;
   padding: 8px 16px;
   min-width: 7.5em;
   color: #333333;
@@ -545,18 +535,6 @@ a img {
   border: none;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) {
-  html {
-    -webkit-text-size-adjust: none;
-    /* none for no scaling */
-  }
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  html {
-    -webkit-text-size-adjust: none;
-    /* none for no scaling */
-  }
-}
 .screen-reader-text {
   position: absolute;
   clip: rect(1px 1px 1px 1px);
@@ -1163,10 +1141,6 @@ li.pingback.bypostauthor:before {
 }
 .menu-primary a:focus {
   outline: none;
-}
-.menu-primary li {
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: antialiased;
 }
 
 .menu-primary-items,
@@ -1872,9 +1846,6 @@ li.pingback.bypostauthor:before {
 .social-media-icons .facebook:after {
   background: #3b5998;
 }
-.social-media-icons .google-plus:after {
-  background: #dd4b39;
-}
 .social-media-icons .flickr:after {
   background: #ff0084;
 }
@@ -1911,9 +1882,6 @@ li.pingback.bypostauthor:before {
 .social-media-icons .spotify:after {
   background: #81b71a;
 }
-.social-media-icons .vine:after {
-  background: #00b489;
-}
 .social-media-icons .yahoo:after {
   background: #7B0099;
 }
@@ -1925,9 +1893,6 @@ li.pingback.bypostauthor:before {
 }
 .social-media-icons .delicious:after {
   background: #2a96ff;
-}
-.social-media-icons .stumbleupon:after {
-  background: #EB4823;
 }
 .social-media-icons .deviantart:after {
   background: #bfce00;
