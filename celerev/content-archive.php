@@ -20,7 +20,7 @@
 				echo '<p class="post-categories-blog">';
 				echo '<i class="far fa-folder"></i>';
 				foreach ( $categories as $category ) {
-					$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( esc_html_x( "View all posts in %s", 'View all posts in post category', 'cele' ), $category->name ) ) . '">' . esc_html( $category->cat_name ) . '</a>';
+					$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( esc_html_x( "View all posts in %s", 'View all posts in post category', 'celerev' ), $category->name ) ) . '">' . esc_html( $category->cat_name ) . '</a>';
 				}
 				echo trim( $output, '');
 				echo "</p>";
@@ -33,7 +33,7 @@
 				echo '<p class="post-tags-blog">';
 				echo '<i class="fas fa-tag"></i>';
 				foreach ( $tags as $tag ) {
-					$output .= '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" title="' . esc_attr( sprintf( esc_html_x( "View all posts tagged %s", 'View all posts in post tag', 'cele' ), $tag->name ) ) . '">' . esc_html( $tag->name ) . '</a>';
+					$output .= '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" title="' . esc_attr( sprintf( esc_html_x( "View all posts tagged %s", 'View all posts in post tag', 'celerev' ), $tag->name ) ) . '">' . esc_html( $tag->name ) . '</a>';
 				}
 				echo trim( $output, '');
 				echo "</p>";

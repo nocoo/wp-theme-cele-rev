@@ -8,7 +8,7 @@
 		<div class="post-content">
 			<?php the_content(); ?>
 			<?php wp_link_pages( array(
-				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'cele' ),
+				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'celerev' ),
 				'after'  => '</p>',
 			) ); ?>
 			<?php do_action( 'ct_cele_page_after' ); ?>

@@ -37,7 +37,7 @@ if (! function_exists(('ct_cele_theme_setup'))) {
         ));
 
         register_nav_menus(array(
-            'primary' => esc_html__('Primary', 'cele')
+            'primary' => esc_html__('Primary', 'celerev')
         ));
 
         // Add WooCommerce support
@@ -56,32 +56,32 @@ if (! function_exists(('ct_cele_theme_setup'))) {
         // Gutenberg - modify the font sizes
         add_theme_support('editor-font-sizes', array(
             array(
-                    'name' => __('small', 'cele'),
-                    'shortName' => __('S', 'cele'),
+                    'name' => __('small', 'celerev'),
+                    'shortName' => __('S', 'celerev'),
                     'size' => 12,
                     'slug' => 'small'
             ),
             array(
-                    'name' => __('regular', 'cele'),
-                    'shortName' => __('M', 'cele'),
+                    'name' => __('regular', 'celerev'),
+                    'shortName' => __('M', 'celerev'),
                     'size' => 16,
                     'slug' => 'regular'
             ),
             array(
-                    'name' => __('large', 'cele'),
-                    'shortName' => __('L', 'cele'),
+                    'name' => __('large', 'celerev'),
+                    'shortName' => __('L', 'celerev'),
                     'size' => 21,
                     'slug' => 'large'
             ),
             array(
-                    'name' => __('larger', 'cele'),
-                    'shortName' => __('XL', 'cele'),
+                    'name' => __('larger', 'celerev'),
+                    'shortName' => __('XL', 'celerev'),
                     'size' => 28,
                     'slug' => 'larger'
             )
         ));
 
-        load_theme_textdomain('cele', get_template_directory() . '/languages');
+        load_theme_textdomain('celerev', get_template_directory() . '/languages');
     }
 }
 add_action('after_setup_theme', 'ct_cele_theme_setup', 10);
@@ -101,9 +101,9 @@ if (! function_exists(('ct_cele_register_widget_areas'))) {
     function ct_cele_register_widget_areas()
     {
         register_sidebar(array(
-            'name'          => esc_html__('Primary Sidebar', 'cele'),
+            'name'          => esc_html__('Primary Sidebar', 'celerev'),
             'id'            => 'primary',
-            'description'   => esc_html__('Widgets in this area will be shown in the sidebar next to the main post content', 'cele'),
+            'description'   => esc_html__('Widgets in this area will be shown in the sidebar next to the main post content', 'celerev'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
             'before_title'  => '<h2 class="widget-title">',
@@ -128,19 +128,19 @@ if (! function_exists(('ct_cele_customize_comments'))) {
 			</div>
 			<div class="comment-content">
 				<?php if ($comment->comment_approved == '0') : ?>
-					<em><?php esc_html_e('Your comment is awaiting moderation.', 'cele') ?></em>
+					<em><?php esc_html_e('Your comment is awaiting moderation.', 'celerev') ?></em>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
 			</div>
 			<div class="comment-footer">
 				<?php comment_reply_link(array_merge($args, array(
-                    'reply_text' => esc_html_x('Reply', 'verb: reply to this comment', 'cele'),
+                    'reply_text' => esc_html_x('Reply', 'verb: reply to this comment', 'celerev'),
                     'depth'      => $depth,
                     'max_depth'  => $args['max_depth'],
                     'after'     => '<i class="fas fa-reply" aria-hidden="true"></i>'
                 ))); ?>
-				<?php edit_comment_link(esc_html_x('Edit', 'verb: reply to this comment', 'cele'), '<div class="edit-comment-container">', '<i class="fas fa-edit" aria-hidden="true"></i></div>'); ?>
+				<?php edit_comment_link(esc_html_x('Edit', 'verb: reply to this comment', 'celerev'), '<div class="edit-comment-container">', '<i class="fas fa-edit" aria-hidden="true"></i></div>'); ?>
 			</div>
 		</article>
 		<?php
@@ -152,7 +152,7 @@ if (! function_exists('ct_cele_update_fields')) {
     {
         $commenter = wp_get_current_commenter();
         $req       = get_option('require_name_email');
-        $label     = $req ? '*' : ' ' . esc_html__('(optional)', 'cele');
+        $label     = $req ? '*' : ' ' . esc_html__('(optional)', 'celerev');
         $aria_req  = $req ? "aria-required='true'" : '';
 
         $fields['author'] =
@@ -230,7 +230,7 @@ if (! function_exists('ct_cele_filter_read_more_link')) {
         }
         // Because i18n text cannot be stored in a variable
         if (empty($read_more_text)) {
-            $output .= '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url(get_permalink()) . '">' . esc_html__('Continue Reading', 'cele') . '<span class="screen-reader-text">' . esc_html(get_the_title()) . '</span></a></div>';
+            $output .= '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url(get_permalink()) . '">' . esc_html__('Continue Reading', 'celerev') . '<span class="screen-reader-text">' . esc_html(get_the_title()) . '</span></a></div>';
         } else {
             $output .= '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url(get_permalink()) . '">' . esc_html($read_more_text) . '<span class="screen-reader-text">' . esc_html(get_the_title()) . '</span></a></div>';
         }
@@ -298,7 +298,7 @@ function ct_cele_update_yoast_og_description($ogdesc)
 {
     $read_more_text = get_theme_mod('read_more_text');
     if (empty($read_more_text)) {
-        $read_more_text = esc_html__('Continue Reading', 'cele');
+        $read_more_text = esc_html__('Continue Reading', 'celerev');
     }
     $ogdesc = substr($ogdesc, 0, strpos($ogdesc, $read_more_text));
 
@@ -447,8 +447,8 @@ if (! function_exists('ct_cele_social_icons_output')) {
                 if ($active_site == 'email') { ?>
 					<a class="email" target="_blank"
 					   href="mailto:<?php echo antispambot(is_email(get_theme_mod($key))); ?>">
-						<i class="fas fa-envelope" title="<?php echo esc_attr_x('email', 'noun', 'cele'); ?>"></i>
-						<span class="screen-reader-text"><?php echo esc_attr_x('email', 'noun', 'cele'); ?></span>
+						<i class="fas fa-envelope" title="<?php echo esc_attr_x('email', 'noun', 'celerev'); ?>"></i>
+						<span class="screen-reader-text"><?php echo esc_attr_x('email', 'noun', 'celerev'); ?></span>
 					</a>
 				<?php } elseif ($active_site == 'skype') { ?>
 					<a class="<?php echo esc_attr($active_site); ?>" target="_blank"
@@ -582,7 +582,7 @@ if (! function_exists(('ct_cele_delete_settings_notice'))) {
             if ($_GET['cele_status'] == 'deleted') {
                 ?>
 				<div class="updated">
-					<p><?php esc_html_e('Customizer settings deleted.', 'cele'); ?></p>
+					<p><?php esc_html_e('Customizer settings deleted.', 'celerev'); ?></p>
 				</div>
 				<?php
             }
@@ -734,7 +734,7 @@ function ct_cele_scroll_to_top_arrow()
     $setting = get_theme_mod('scroll_to_top');
 
     if ($setting == 'yes') {
-        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'cele') .'</span><i class="fas fa-arrow-up"></i></button>';
+        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'celerev') .'</span><i class="fas fa-arrow-up"></i></button>';
     }
 }
 add_action('ct_cele_body_bottom', 'ct_cele_scroll_to_top_arrow');
@@ -769,8 +769,8 @@ function ct_cele_pagination()
         }
     }
     the_posts_pagination(array(
-    'prev_text' => esc_html__('Previous', 'cele'),
-    'next_text' => esc_html__('Next', 'cele')
+    'prev_text' => esc_html__('Previous', 'celerev'),
+    'next_text' => esc_html__('Next', 'celerev')
     ));
 }
 

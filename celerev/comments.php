@@ -9,7 +9,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'cele' ), esc_html__( 'One Comment', 'cele' ), esc_html_x( '% Comments', 'noun: 5 comments', 'cele' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
@@ -29,7 +29,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'cele' ), esc_html__( 'One Comment', 'cele' ), esc_html_x( '% Comments', 'noun: 5 comments', 'cele' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
@@ -43,7 +43,7 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed pings-open">
-            <?php printf( __( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'cele' ), esc_url( get_trackback_url() ) ); ?>
+            <?php printf( __( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'celerev' ), esc_url( get_trackback_url() ) ); ?>
         </p>
     </section>
     <?php
@@ -51,7 +51,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( esc_html__( 'Be First to Comment', 'cele' ), esc_html__( 'One Comment', 'cele' ), esc_html_x( '% Comments', 'noun: 5 comments', 'cele' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'celerev' ), esc_html__( 'One Comment', 'celerev' ), esc_html_x( '% Comments', 'noun: 5 comments', 'celerev' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
@@ -65,7 +65,7 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed">
-            <?php esc_html_e( 'Comments are closed.', 'cele' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'celerev' ); ?>
         </p>
     </section>
     <?php
@@ -82,7 +82,7 @@ if ( comments_open() ) { ?>
 	if ( $output ) { ?>
 		<section id="comments" class="comments">
 			<p class="comments-closed">
-				<?php esc_html_e( 'Comments are closed.', 'cele' ); ?>
+				<?php esc_html_e( 'Comments are closed.', 'celerev' ); ?>
 			</p>
 		</section>
 	<?php }

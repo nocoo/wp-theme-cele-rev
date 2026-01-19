@@ -14,10 +14,10 @@ function ct_cele_load_scripts_styles() {
 
 	wp_enqueue_script( 'ct-cele-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 	wp_localize_script( 'ct-cele-js', 'ct_cele_objectL10n', array(
-		'openMenu'       => esc_html_x( 'open menu', 'verb: open the menu', 'cele' ),
-		'closeMenu'      => esc_html_x( 'close menu', 'verb: close the menu', 'cele' ),
-		'openChildMenu'  => esc_html_x( 'open dropdown menu', 'verb: open the dropdown menu', 'cele' ),
-		'closeChildMenu' => esc_html_x( 'close dropdown menu', 'verb: close the dropdown menu', 'cele' )
+		'openMenu'       => esc_html_x( 'open menu', 'verb: open the menu', 'celerev' ),
+		'closeMenu'      => esc_html_x( 'close menu', 'verb: close the menu', 'celerev' ),
+		'openChildMenu'  => esc_html_x( 'open dropdown menu', 'verb: open the dropdown menu', 'celerev' ),
+		'closeChildMenu' => esc_html_x( 'close dropdown menu', 'verb: close the dropdown menu', 'celerev' )
 	) );
 
 	wp_enqueue_style( 'ct-cele-font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css' );

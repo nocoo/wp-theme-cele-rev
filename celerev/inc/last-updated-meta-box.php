@@ -9,7 +9,7 @@ function ct_cele_last_updated_meta_box() {
 
 		add_meta_box(
 			'ct_cele_last_updated',
-			esc_html__( 'Last Updated Date', 'cele' ),
+			esc_html__( 'Last Updated Date', 'celerev' ),
 			'ct_cele_last_updated_callback',
 			$screen,
 			'side'
@@ -26,14 +26,14 @@ function ct_cele_last_updated_callback( $post ) {
   ?>
 	<p>
 		<select name="cele-last-updated" id="cele-last-updated" style="box-sizing: border-box; width: 100%;">
-			<option value="default"><?php esc_html_e( 'Use Customizer setting', 'cele' ); ?></option>
+			<option value="default"><?php esc_html_e( 'Use Customizer setting', 'celerev' ); ?></option>
 			<option value="yes" <?php if ( $display == 'yes' ) {
 				echo 'selected';
-			} ?>><?php esc_html_e( 'Show the date', 'cele' ); ?>
+			} ?>><?php esc_html_e( 'Show the date', 'celerev' ); ?>
 			</option>
 			<option value="no" <?php if ( $display == 'no' ) {
 				echo 'selected';
-			} ?>><?php esc_html_e( "Don't show the date", 'cele' ); ?>
+			} ?>><?php esc_html_e( "Don't show the date", 'celerev' ); ?>
 			</option>
 		</select>
 	</p> <?php

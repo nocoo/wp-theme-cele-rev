@@ -23,7 +23,7 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('ct_cele_logo_upload', array(
-        'title'    => __('Logo', 'cele'),
+        'title'    => __('Logo', 'celerev'),
         'priority' => 20
     ));
     // Upload - setting
@@ -35,7 +35,7 @@ function ct_cele_add_customizer_content($wp_customize)
         $wp_customize,
         'logo_image',
         array(
-            'label'    => __('Upload custom logo.', 'cele'),
+            'label'    => __('Upload custom logo.', 'celerev'),
             'section'  => 'ct_cele_logo_upload',
             'settings' => 'logo_upload'
         )
@@ -51,9 +51,9 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('ct_cele_social_media_icons', array(
-        'title'       => __('Social Media Icons', 'cele'),
+        'title'       => __('Social Media Icons', 'celerev'),
         'priority'    => 25,
-        'description' => __('Add the URL for each of your social profiles.', 'cele')
+        'description' => __('Add the URL for each of your social profiles.', 'celerev')
     ));
 
     // create a setting and control for each social site
@@ -66,7 +66,7 @@ function ct_cele_add_customizer_content($wp_customize)
             ));
             // control
             $wp_customize->add_control($social_site, array(
-                'label'    => __('Email Address', 'cele'),
+                'label'    => __('Email Address', 'celerev'),
                 'section'  => 'ct_cele_social_media_icons',
                 'priority' => $priority
             ));
@@ -77,7 +77,7 @@ function ct_cele_add_customizer_content($wp_customize)
             ));
             // control
             $wp_customize->add_control($social_site, array(
-                'label'    => __('Phone', 'cele'),
+                'label'    => __('Phone', 'celerev'),
                 'section'     => 'ct_cele_social_media_icons',
                 'priority'    => $priority,
                 'type'        => 'text'
@@ -86,45 +86,45 @@ function ct_cele_add_customizer_content($wp_customize)
             $label = ucfirst($social_site);
 
             if ($social_site == 'rss') {
-                $label = __('RSS', 'cele');
+                $label = __('RSS', 'celerev');
             } elseif ($social_site == 'researchgate') {
-                $label = __('ResearchGate', 'cele');
+                $label = __('ResearchGate', 'celerev');
             } elseif ($social_site == 'soundcloud') {
-                $label = __('SoundCloud', 'cele');
+                $label = __('SoundCloud', 'celerev');
             } elseif ($social_site == 'slideshare') {
-                $label = __('SlideShare', 'cele');
+                $label = __('SlideShare', 'celerev');
             } elseif ($social_site == 'codepen') {
-                $label = __('CodePen', 'cele');
+                $label = __('CodePen', 'celerev');
             } elseif ($social_site == 'stumbleupon') {
-                $label = __('StumbleUpon', 'cele');
+                $label = __('StumbleUpon', 'celerev');
             } elseif ($social_site == 'deviantart') {
-                $label = __('DeviantArt', 'cele');
+                $label = __('DeviantArt', 'celerev');
             } elseif ($social_site == 'google-wallet') {
-                $label = __('Google Wallet', 'cele');
+                $label = __('Google Wallet', 'celerev');
             } elseif ($social_site == 'hacker-news') {
-                $label = __('Hacker News', 'cele');
+                $label = __('Hacker News', 'celerev');
             } elseif ($social_site == 'whatsapp') {
-                $label = __('WhatsApp', 'cele');
+                $label = __('WhatsApp', 'celerev');
             } elseif ($social_site == 'qq') {
-                $label = __('QQ', 'cele');
+                $label = __('QQ', 'celerev');
             } elseif ($social_site == 'vk') {
-                $label = __('VK', 'cele');
+                $label = __('VK', 'celerev');
             } elseif ($social_site == 'wechat') {
-                $label = __('WeChat', 'cele');
+                $label = __('WeChat', 'celerev');
             } elseif ($social_site == 'tencent-weibo') {
-                $label = __('Tencent Weibo', 'cele');
+                $label = __('Tencent Weibo', 'celerev');
             } elseif ($social_site == 'paypal') {
-                $label = __('PayPal', 'cele');
+                $label = __('PayPal', 'celerev');
             } elseif ($social_site == 'stack-overflow') {
-                $label = __('Stack Overflow', 'cele');
+                $label = __('Stack Overflow', 'celerev');
             } elseif ($social_site == 'ok-ru') {
-                $label = __('OK.ru', 'cele');
+                $label = __('OK.ru', 'celerev');
             } elseif ($social_site == 'artstation') {
-                $label = __('ArtStation', 'cele');
+                $label = __('ArtStation', 'celerev');
             } elseif ($social_site == 'email-form') {
-                $label = __('Contact Form', 'cele');
+                $label = __('Contact Form', 'celerev');
             } elseif ($social_site == 'twitter') {
-                $label = __('X (Twitter)', 'cele');
+                $label = __('X (Twitter)', 'celerev');
             }
 
             if ($social_site == 'skype') {
@@ -155,7 +155,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('social_icon_custom_1', array(
-        'label'    => __('Custom icon 1 URL', 'cele'),
+        'label'    => __('Custom icon 1 URL', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_1',
         'type'     => 'url',
@@ -165,7 +165,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'social_icon_custom_1_image', array(
-        'label'    => __('Custom icon 1 image', 'cele'),
+        'label'    => __('Custom icon 1 image', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_1_image',
         'priority' => $priority + 6
@@ -175,7 +175,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'absint'
     ));
     $wp_customize->add_control('social_icon_custom_1_size', array(
-        'label'    => __('Custom icon 1 size (px)', 'cele'),
+        'label'    => __('Custom icon 1 size (px)', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_1_size',
         'type'     => 'number',
@@ -186,7 +186,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('social_icon_custom_2', array(
-        'label'    => __('Custom icon 2 URL', 'cele'),
+        'label'    => __('Custom icon 2 URL', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_2',
         'type'     => 'url',
@@ -196,7 +196,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'social_icon_custom_2_image', array(
-        'label'    => __('Custom icon 2 image', 'cele'),
+        'label'    => __('Custom icon 2 image', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_2_image',
         'priority' => $priority + 11
@@ -206,7 +206,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'absint'
     ));
     $wp_customize->add_control('social_icon_custom_2_size', array(
-        'label'    => __('Custom icon 2 size (px)', 'cele'),
+        'label'    => __('Custom icon 2 size (px)', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_2_size',
         'type'     => 'number',
@@ -217,7 +217,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control('social_icon_custom_3', array(
-        'label'    => __('Custom icon 3 URL', 'cele'),
+        'label'    => __('Custom icon 3 URL', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_3',
         'type'     => 'url',
@@ -227,7 +227,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'social_icon_custom_3_image', array(
-        'label'    => __('Custom icon 3 image', 'cele'),
+        'label'    => __('Custom icon 3 image', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_3_image',
         'priority' => $priority + 16
@@ -237,7 +237,7 @@ function ct_cele_add_customizer_content($wp_customize)
         'sanitize_callback' => 'absint'
     ));
     $wp_customize->add_control('social_icon_custom_3_size', array(
-        'label'    => __('Custom icon 3 size (px)', 'cele'),
+        'label'    => __('Custom icon 3 size (px)', 'celerev'),
         'section'  => 'ct_cele_social_media_icons',
         'settings' => 'social_icon_custom_3_size',
         'type'     => 'number',
@@ -248,7 +248,7 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('cele_blog', array(
-        'title'    => _x('Blog', 'noun: the blog section', 'cele'),
+        'title'    => _x('Blog', 'noun: the blog section', 'celerev'),
         'priority' => 45
     ));
     // setting
@@ -258,13 +258,13 @@ function ct_cele_add_customizer_content($wp_customize)
     ));
     // control
     $wp_customize->add_control('full_post', array(
-        'label'    => __('Show full posts on blog?', 'cele'),
+        'label'    => __('Show full posts on blog?', 'celerev'),
         'section'  => 'cele_blog',
         'settings' => 'full_post',
         'type'     => 'radio',
         'choices'  => array(
-            'yes' => __('Yes', 'cele'),
-            'no'  => __('No', 'cele')
+            'yes' => __('Yes', 'celerev'),
+            'no'  => __('No', 'celerev')
         )
     ));
     // setting
@@ -274,19 +274,19 @@ function ct_cele_add_customizer_content($wp_customize)
     ));
     // control
     $wp_customize->add_control('excerpt_length', array(
-        'label'    => __('Excerpt word count', 'cele'),
+        'label'    => __('Excerpt word count', 'celerev'),
         'section'  => 'cele_blog',
         'settings' => 'excerpt_length',
         'type'     => 'number'
     ));
     // Read More text - setting
     $wp_customize->add_setting('read_more_text', array(
-        'default'           => __('Continue Reading', 'cele'),
+        'default'           => __('Continue Reading', 'celerev'),
         'sanitize_callback' => 'ct_cele_sanitize_text'
     ));
     // Read More text - control
     $wp_customize->add_control('read_more_text', array(
-        'label'    => __('Read More button text', 'cele'),
+        'label'    => __('Read More button text', 'celerev'),
         'section'  => 'cele_blog',
         'settings' => 'read_more_text',
         'type'     => 'text'
@@ -296,7 +296,7 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('cele_display', array(
-        'title'       => __('Display Controls', 'cele'),
+        'title'       => __('Display Controls', 'celerev'),
         'priority'    => 55
     ));
     // setting - post author
@@ -307,12 +307,12 @@ function ct_cele_add_customizer_content($wp_customize)
     // control - post author
     $wp_customize->add_control('display_post_author', array(
         'type'    => 'radio',
-        'label'   => __('Post author name in byline', 'cele'),
+        'label'   => __('Post author name in byline', 'celerev'),
         'section' => 'cele_display',
         'setting' => 'display_post_author',
         'choices' => array(
-            'show' => __('Show', 'cele'),
-            'hide' => __('Hide', 'cele')
+            'show' => __('Show', 'celerev'),
+            'hide' => __('Hide', 'celerev')
         )
     ));
     // setting - post date
@@ -323,12 +323,12 @@ function ct_cele_add_customizer_content($wp_customize)
     // control - post author
     $wp_customize->add_control('display_post_date', array(
         'type'    => 'radio',
-        'label'   => __('Post date in byline', 'cele'),
+        'label'   => __('Post date in byline', 'celerev'),
         'section' => 'cele_display',
         'setting' => 'display_post_date',
         'choices' => array(
-            'show' => __('Show', 'cele'),
-            'hide' => __('Hide', 'cele')
+            'show' => __('Show', 'celerev'),
+            'hide' => __('Hide', 'celerev')
         )
     ));
     // setting - post categories blog
@@ -339,12 +339,12 @@ function ct_cele_add_customizer_content($wp_customize)
     // control - post categories blog
     $wp_customize->add_control('display_post_categories_blog', array(
         'type'    => 'radio',
-        'label'   => __('Post categories on blog page', 'cele'),
+        'label'   => __('Post categories on blog page', 'celerev'),
         'section' => 'cele_display',
         'setting' => 'display_post_categories_blog',
         'choices' => array(
-            'show' => __('Show', 'cele'),
-            'hide' => __('Hide', 'cele')
+            'show' => __('Show', 'celerev'),
+            'hide' => __('Hide', 'celerev')
         )
     ));
     // setting - post tags blog
@@ -355,12 +355,12 @@ function ct_cele_add_customizer_content($wp_customize)
     // control - post tags blog
     $wp_customize->add_control('display_post_tags_blog', array(
         'type'    => 'radio',
-        'label'   => __('Post tags on blog page', 'cele'),
+        'label'   => __('Post tags on blog page', 'celerev'),
         'section' => 'cele_display',
         'setting' => 'display_post_tags_blog',
         'choices' => array(
-            'show' => __('Show', 'cele'),
-            'hide' => __('Hide', 'cele')
+            'show' => __('Show', 'celerev'),
+            'hide' => __('Hide', 'celerev')
         )
     ));
 
@@ -368,7 +368,7 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('ct_cele_scroll_to_stop', array(
-        'title'    => __('Scroll-to-Top Arrow', 'cele'),
+        'title'    => __('Scroll-to-Top Arrow', 'celerev'),
         'priority' => 70
     ));
     // setting - scroll-to-top arrow
@@ -378,13 +378,13 @@ function ct_cele_add_customizer_content($wp_customize)
     ));
     // control - scroll-to-top arrow
     $wp_customize->add_control('scroll_to_top', array(
-        'label'    => __('Display Scroll-to-top arrow?', 'cele'),
+        'label'    => __('Display Scroll-to-top arrow?', 'celerev'),
         'section'  => 'ct_cele_scroll_to_stop',
         'settings' => 'scroll_to_top',
         'type'     => 'radio',
         'choices'  => array(
-            'yes' => __('Yes', 'cele'),
-            'no'  => __('No', 'cele')
+            'yes' => __('Yes', 'celerev'),
+            'no'  => __('No', 'celerev')
         )
     ));
 
@@ -392,7 +392,7 @@ function ct_cele_add_customizer_content($wp_customize)
 
     // section
     $wp_customize->add_section('ct_cele_additional_options', array(
-        'title'    => __('Additional Options', 'cele'),
+        'title'    => __('Additional Options', 'celerev'),
         'priority' => 75
     ));
     // setting - last updated
@@ -402,13 +402,13 @@ function ct_cele_add_customizer_content($wp_customize)
     ));
     // control - last updated
     $wp_customize->add_control('last_updated', array(
-        'label'    => __('Display the date each post was last updated?', 'cele'),
+        'label'    => __('Display the date each post was last updated?', 'celerev'),
         'section'  => 'ct_cele_additional_options',
         'settings' => 'last_updated',
         'type'     => 'radio',
         'choices'  => array(
-            'yes' => __('Yes', 'cele'),
-            'no'  => __('No', 'cele')
+            'yes' => __('Yes', 'celerev'),
+            'no'  => __('No', 'celerev')
         )
     ));
 
@@ -428,7 +428,7 @@ function ct_cele_add_customizer_content($wp_customize)
     } else {
         // section
         $wp_customize->add_section('cele_custom_css', array(
-            'title'    => __('Custom CSS', 'cele'),
+            'title'    => __('Custom CSS', 'celerev'),
             'priority' => 80
         ));
         // setting
@@ -439,7 +439,7 @@ function ct_cele_add_customizer_content($wp_customize)
         // control
         $wp_customize->add_control('custom_css', array(
             'type'     => 'textarea',
-            'label'    => __('Add Custom CSS Here:', 'cele'),
+            'label'    => __('Add Custom CSS Here:', 'celerev'),
             'section'  => 'cele_custom_css',
             'settings' => 'custom_css'
         ));
@@ -455,8 +455,8 @@ function ct_cele_add_customizer_content($wp_customize)
 function ct_cele_sanitize_show_hide($input)
 {
     $valid = array(
-        'show' => __('Show', 'cele'),
-        'hide' => __('Hide', 'cele')
+        'show' => __('Show', 'celerev'),
+        'hide' => __('Hide', 'celerev')
     );
 
     return array_key_exists($input, $valid) ? $input : '';
@@ -475,8 +475,8 @@ function ct_cele_sanitize_email($input)
 function ct_cele_sanitize_yes_no_settings($input)
 {
     $valid = array(
-        'yes' => __('Yes', 'cele'),
-        'no'  => __('No', 'cele')
+        'yes' => __('Yes', 'celerev'),
+        'no'  => __('No', 'celerev')
     );
 
     return array_key_exists($input, $valid) ? $input : '';

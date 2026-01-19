@@ -3,8 +3,8 @@
 function ct_cele_register_theme_page()
 {
     add_theme_page(
-        sprintf(esc_html__('%s Dashboard', 'cele'), wp_get_theme()),
-        sprintf(esc_html__('%s Dashboard', 'cele'), wp_get_theme()),
+        sprintf(esc_html__('%s Dashboard', 'celerev'), wp_get_theme()),
+        sprintf(esc_html__('%s Dashboard', 'celerev'), wp_get_theme()),
         'edit_theme_options',
         'cele-options',
         'ct_cele_options_content'
@@ -16,7 +16,7 @@ function ct_cele_options_content()
 {
     $pro_url = 'https://www.competethemes.com/cele-pro/?utm_source=wp-dashboard&utm_medium=Dashboard&utm_campaign=Cele%20Pro%20-%20Dashboard'; ?>
 	<div id="cele-dashboard-wrap" class="wrap cele-dashboard-wrap">
-		<h2><?php printf(esc_html__('%s Dashboard', 'cele'), wp_get_theme()); ?></h2>
+		<h2><?php printf(esc_html__('%s Dashboard', 'celerev'), wp_get_theme()); ?></h2>
 		<?php do_action('ct_cele_theme_options_before'); ?>
 		<div class="main">
 			<?php if (function_exists('ct_cele_pro_init')) : ?>

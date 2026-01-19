@@ -13,7 +13,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
         <span>
 			&copy; <?php echo date('Y'); ?> lizheng.me. All rights reserved.&nbsp;
             <?php
-			$footer_text = sprintf( __( '<a href="%1$s" rel="nofollow">%2$s Theme</a> by Compete Themes.', 'cele' ), 'https://www.competethemes.com/cele/', wp_get_theme( get_template() ) );
+			$footer_text = sprintf( __( '<a href="%1$s" rel="nofollow">%2$s Theme</a> by Compete Themes.', 'celerev' ), 'https://www.competethemes.com/cele/', wp_get_theme( get_template() ) );
             $footer_text = apply_filters( 'ct_cele_footer_text', $footer_text );
             echo do_shortcode( wp_kses_post( $footer_text ) );
             ?>

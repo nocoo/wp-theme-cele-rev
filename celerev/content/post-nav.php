@@ -4,29 +4,29 @@ global $post;
 
 // gets the previous post if it exists
 $previous_post = get_adjacent_post(false,'',true);
-$previous_text = esc_html__( 'Previous Post', 'cele' );
+$previous_text = esc_html__( 'Previous Post', 'celerev' );
 
 if ( $previous_post == '' ) {
-	$previous_text  = esc_html__( 'No Older Posts', 'cele' );
+	$previous_text  = esc_html__( 'No Older Posts', 'celerev' );
 	if ( get_option( 'show_on_front' ) == 'page' ) {
 		$previous_url = get_permalink( get_option( 'page_for_posts' ) );
 	} else {
 		$previous_url = get_home_url();
 	}
-	$previous_link = '<a href="' . esc_url( $previous_url ) . '">' . esc_html__( 'Return to Blog', 'cele' ) . '</a>';
+	$previous_link = '<a href="' . esc_url( $previous_url ) . '">' . esc_html__( 'Return to Blog', 'celerev' ) . '</a>';
 }
 
 $next_post  = get_adjacent_post( false, '', false );
-$next_text  = esc_html__( 'Next Post', 'cele' );
+$next_text  = esc_html__( 'Next Post', 'celerev' );
 
 if ( $next_post == '' ) {
-	$next_text  = esc_html__( 'No Newer Posts', 'cele' );
+	$next_text  = esc_html__( 'No Newer Posts', 'celerev' );
 	if ( get_option( 'show_on_front' ) == 'page' ) {
 		$next_url = get_permalink( get_option( 'page_for_posts' ) );
 	} else {
 		$next_url = get_home_url();
 	}
-	$next_link = '<a href="' . esc_url( $next_url ) . '">' . esc_html__( 'Return to Blog', 'cele' ) . '</a>';
+	$next_link = '<a href="' . esc_url( $next_url ) . '">' . esc_html__( 'Return to Blog', 'celerev' ) . '</a>';
 }
 
 ?>
