@@ -1796,14 +1796,7 @@ li.pingback.bypostauthor:before {
   border-color: #E6E6E6;
 }
 .social-media-icons a:hover, .social-media-icons a:active, .social-media-icons a:focus {
-  color: white;
   outline: none;
-}
-.social-media-icons a:hover i,
-.social-media-icons a:hover .fas,
-.social-media-icons a:hover .far,
-.social-media-icons a:hover .fab {
-  color: white !important;
 }
 .social-media-icons a:hover:after, .social-media-icons a:active:after, .social-media-icons a:focus:after {
   -webkit-transform: scale(1);

@@ -2,6 +2,7 @@
 /**
  * Generate CSS for SVG icons
  * Creates lightweight CSS using SVG background images
+ * Replaces currentColor with actual color values for proper hover states
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -10,11 +11,16 @@ import { join } from 'node:path';
 const ICONS_DIR = join(import.meta.dir, '../celerev/assets/icons');
 const OUTPUT_FILE = join(import.meta.dir, '../celerev/assets/icons/icons.css');
 
-// SVG to data URI
-function svgToDataUri(svg: string): string {
+const DEFAULT_COLOR = '#666666';
+const HOVER_COLOR = '#FFFFFF';
+
+// SVG to data URI with color replacement
+function svgToDataUri(svg: string, color: string): string {
   const cleaned = svg
     .replace(/<!--.*?-->/gs, '')
     .replace(/\s+/g, ' ')
+    .replace(/fill="currentColor"/g, `fill="${color}"`)
+    .replace(/fill='currentColor'/g, `fill='${color}'`)
     .trim();
   const base64 = Buffer.from(cleaned).toString('base64');
   return `url('data:image/svg+xml;base64,${base64}')`;
@@ -22,7 +28,6 @@ function svgToDataUri(svg: string): string {
 
 /**
  * Map CSS class names to SVG filenames
- * Handles special cases where PHP uses different names than Font Awesome
  */
 const iconMappings: Record<string, { file: string; type: 'solid' | 'regular' | 'brands' }> = {
   // Solid icons
@@ -41,7 +46,7 @@ const iconMappings: Record<string, { file: string; type: 'solid' | 'regular' | '
   // Regular icons
   'envelope': { file: 'envelope', type: 'regular' },
 
-  // Brand icons (with special mappings for PHP compatibility)
+  // Brand icons
   '500px': { file: '500px', type: 'brands' },
   'amazon': { file: 'amazon', type: 'brands' },
   'artstation': { file: 'artstation', type: 'brands' },
@@ -66,7 +71,7 @@ const iconMappings: Record<string, { file: string; type: 'solid' | 'regular' | '
   'medium': { file: 'medium', type: 'brands' },
   'meetup': { file: 'meetup', type: 'brands' },
   'mixcloud': { file: 'mixcloud', type: 'brands' },
-  'odnoklassniki': { file: 'odnoklassniki', type: 'brands' }, // ok-ru in PHP
+  'odnoklassniki': { file: 'odnoklassniki', type: 'brands' },
   'orcid': { file: 'orcid', type: 'brands' },
   'patreon': { file: 'patreon', type: 'brands' },
   'paypal': { file: 'paypal', type: 'brands' },
@@ -92,15 +97,15 @@ const iconMappings: Record<string, { file: string; type: 'solid' | 'regular' | '
   'vimeo': { file: 'vimeo', type: 'brands' },
   'vk': { file: 'vk', type: 'brands' },
   'weibo': { file: 'weibo', type: 'brands' },
-  'weixin': { file: 'weixin', type: 'brands' }, // wechat in PHP
+  'weixin': { file: 'weixin', type: 'brands' },
   'whatsapp': { file: 'whatsapp', type: 'brands' },
-  'x-twitter': { file: 'x-twitter', type: 'brands' }, // twitter in PHP
+  'x-twitter': { file: 'x-twitter', type: 'brands' },
   'xing': { file: 'xing', type: 'brands' },
   'yahoo': { file: 'yahoo', type: 'brands' },
   'yelp': { file: 'yelp', type: 'brands' },
   'youtube': { file: 'youtube', type: 'brands' },
   'qq': { file: 'qq', type: 'brands' },
-  'get-pocket': { file: 'get-pocket', type: 'brands' }, // pocket in PHP
+  'get-pocket': { file: 'get-pocket', type: 'brands' },
 };
 
 let css = `/**
@@ -111,11 +116,17 @@ let css = `/**
 
 `;
 
-// Helper to generate CSS for an icon
-function generateIconClass(className: string, dataUri: string, type: 'solid' | 'regular' | 'brands'): string {
-  const prefix = type === 'solid' ? 'fas' : type === 'regular' ? 'far' : 'fab';
+// Generate CSS for each icon with both normal and hover states
+let processedCount = 0;
+for (const [className, { file, type }] of Object.entries(iconMappings)) {
+  const svgPath = join(ICONS_DIR, type, `${file}.svg`);
+  try {
+    const svg = readFileSync(svgPath, 'utf-8');
+    const normalDataUri = svgToDataUri(svg, DEFAULT_COLOR);
+    const hoverDataUri = svgToDataUri(svg, HOVER_COLOR);
+    const prefix = type === 'solid' ? 'fas' : type === 'regular' ? 'far' : 'fab';
 
-  return `
+    css += `
 /* ${prefix} fa-${className} */
 .${prefix}.fa-${className}::before,
 .${prefix} .fa-${className}::before {
@@ -123,7 +134,7 @@ function generateIconClass(className: string, dataUri: string, type: 'solid' | '
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-image: ${dataUri};
+  background-image: ${normalDataUri};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -131,22 +142,19 @@ function generateIconClass(className: string, dataUri: string, type: 'solid' | '
 }
 
 .fa-${className}::before {
-  background-image: ${dataUri};
+  background-image: ${normalDataUri};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-`;
-}
 
-// Generate CSS for all icons
-let processedCount = 0;
-for (const [className, { file, type }] of Object.entries(iconMappings)) {
-  const svgPath = join(ICONS_DIR, type, `${file}.svg`);
-  try {
-    const svg = readFileSync(svgPath, 'utf-8');
-    const dataUri = svgToDataUri(svg);
-    css += generateIconClass(className, dataUri, type);
+/* Hover state - white icon */
+.social-media-icons a:hover .${prefix}.fa-${className}::before,
+.social-media-icons a:active .${prefix}.fa-${className}::before,
+.social-media-icons a:focus .${prefix}.fa-${className}::before {
+  background-image: ${hoverDataUri};
+}
+`;
     processedCount++;
   } catch (e) {
     console.error(`❌ Error reading ${svgPath}:`, e);
@@ -157,3 +165,5 @@ for (const [className, { file, type }] of Object.entries(iconMappings)) {
 writeFileSync(OUTPUT_FILE, css, 'utf-8');
 console.log(`✅ Generated ${OUTPUT_FILE}`);
 console.log(`   ${processedCount} icons processed`);
+console.log(`   Normal color: ${DEFAULT_COLOR}`);
+console.log(`   Hover color: ${HOVER_COLOR}`);
