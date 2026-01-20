@@ -10,6 +10,7 @@
     "setup": "bun run scripts/install-hooks.sh"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0"
+    "@types/node": "^20.10.0",
+    "csso": "^5.0.5"
   }
 }
