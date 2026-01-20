@@ -253,6 +253,12 @@ jQuery(document).ready(function($){
             }
             sidePositioning(rtl, true);
             sidebar.removeClass('down-page');
+            // Extend footer to cover bounce area
+            $('.site-footer').addClass('footer-extended');
+        }
+        // Remove footer extension when not fixed-bottom
+        else {
+            $('.site-footer').removeClass('footer-extended');
         }
     }
 

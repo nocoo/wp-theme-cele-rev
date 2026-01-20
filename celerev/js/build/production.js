@@ -187,6 +187,9 @@ jQuery(document).ready(function($) {
       }
       sidePositioning(rtl, true);
       sidebar.removeClass("down-page");
+      $(".site-footer").addClass("footer-extended");
+    } else {
+      $(".site-footer").removeClass("footer-extended");
     }
   }
   function sidebarAdjustment() {

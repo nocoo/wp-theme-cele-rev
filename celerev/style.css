@@ -892,6 +892,9 @@ li.pingback.bypostauthor:before {
   background: #F0F0F0;
   z-index: -1;
 }
+.site-footer.footer-extended:after {
+  bottom: -200px;
+}
 .scroll-to-top {
   position: fixed;
   bottom: -45px;
