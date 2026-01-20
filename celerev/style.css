@@ -1607,8 +1607,6 @@ li.pingback.bypostauthor:before {
     z-index: 9;
     top: 0;
     left: 0;
-    min-height: 100%;
-    min-height: calc(100% - 48px);
     width: 30.5558%;
     padding: 0 2.7778%;
   }
@@ -1642,7 +1640,6 @@ li.pingback.bypostauthor:before {
 }
 @media all and (min-width: 62.5em) {
   .main-sidebar {
-    min-height: calc(100% - 36px);
     margin: 0.75em 0 0 0.75em;
     width: calc(30.5558% - 24px);
   }
@@ -1656,7 +1653,6 @@ li.pingback.bypostauthor:before {
 }
 @media all and (min-width: 68.75em) {
   .main-sidebar {
-    min-height: calc(100% - 48px);
     margin: 1.5em 0 0 1.5em;
     width: calc(30.5558% - 48px);
     padding: 0 4.1667%;
