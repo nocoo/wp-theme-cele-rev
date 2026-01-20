@@ -65,17 +65,16 @@ jQuery(document).ready(function($){
                 sidebar.addClass('fixed');
                 sidebarAdjustment();
             } else {
-                // Fix: Only bind scroll event, not resize - optimization #3
-                // resize is already handled separately above
+                // Bind both scroll and resize events - CRITICAL for sidebar scrolling
                 if ( scrollTracking == false ) {
-                    $(window).on('scroll', positionSidebar);
+                    $(window).on('scroll resize', positionSidebar);
                     scrollTracking = true;
                 }
             }
         } else {
-            // Fix: Properly cleanup event listener - optimization #3
+            // Clean up events on smaller screens
             if ( scrollTracking ) {
-                $(window).off('scroll', positionSidebar);
+                $(window).off('scroll resize', positionSidebar);
                 scrollTracking = false;
             }
         }

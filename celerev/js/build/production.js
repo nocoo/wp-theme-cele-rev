@@ -47,13 +47,13 @@ jQuery(document).ready(function($) {
         sidebarAdjustment();
       } else {
         if (scrollTracking == false) {
-          $(window).on("scroll", positionSidebar);
+          $(window).on("scroll resize", positionSidebar);
           scrollTracking = true;
         }
       }
     } else {
       if (scrollTracking) {
-        $(window).off("scroll", positionSidebar);
+        $(window).off("scroll resize", positionSidebar);
         scrollTracking = false;
       }
     }
