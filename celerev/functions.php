@@ -247,8 +247,8 @@ if (! function_exists('ct_cele_filter_read_more_link')) {
         }
         global $post;
         $ismore             = strpos($post->post_content, '<!--more-->');
-        $read_more_text     = get_theme_mod('read_more_text');
-        $new_excerpt_length = get_theme_mod('excerpt_length');
+        $read_more_text     = ct_cele_get_mod('read_more_text');
+        $new_excerpt_length = ct_cele_get_mod('excerpt_length');
         $excerpt_more       = ($new_excerpt_length === 0) ? '' : '&#8230;';
         $output = '';
 
@@ -284,9 +284,8 @@ add_filter('get_the_excerpt', 'ct_cele_filter_manual_excerpts');
 if (! function_exists('ct_cele_excerpt')) {
     function ct_cele_excerpt()
     {
-        global $post;
-        $show_full_post = get_theme_mod('full_post');
-        $ismore         = strpos($post->post_content, '<!--more-->');
+        $show_full_post = ct_cele_get_mod('full_post');
+        $ismore         = strpos(get_post()->post_content, '<!--more-->');
 
         if ($show_full_post === 'yes' || $ismore) {
             the_content();
@@ -299,7 +298,7 @@ if (! function_exists('ct_cele_excerpt')) {
 if (! function_exists('ct_cele_custom_excerpt_length')) {
     function ct_cele_custom_excerpt_length($length)
     {
-        $new_excerpt_length = get_theme_mod('excerpt_length');
+        $new_excerpt_length = ct_cele_get_mod('excerpt_length');
 
         if (! empty($new_excerpt_length) && $new_excerpt_length != 25) {
             return $new_excerpt_length;
@@ -324,7 +323,7 @@ add_filter('the_content_more_link', 'ct_cele_remove_more_link_scroll');
 // Yoast OG description has "Continue readingPost Title Here" due to its use of get_the_excerpt(). This fixes that.
 function ct_cele_update_yoast_og_description($ogdesc)
 {
-    $read_more_text = get_theme_mod('read_more_text');
+    $read_more_text = ct_cele_get_mod('read_more_text');
     if (empty($read_more_text)) {
         $read_more_text = esc_html__('Continue Reading', 'celerev');
     }
@@ -659,7 +658,7 @@ if (! function_exists('ct_cele_custom_css_output')) {
         if (function_exists('wp_get_custom_css')) {
             $custom_css = wp_get_custom_css();
         } else {
-            $custom_css = get_theme_mod('custom_css');
+            $custom_css = ct_cele_get_mod('custom_css');
         }
 
         if (! empty($custom_css)) {
@@ -768,7 +767,7 @@ add_filter('get_the_archive_description', 'ct_cele_modify_archive_descriptions')
 //----------------------------------------------------------------------------------
 function ct_cele_scroll_to_top_arrow()
 {
-    $setting = get_theme_mod('scroll_to_top');
+    $setting = ct_cele_get_mod('scroll_to_top');
 
     if ($setting === 'yes') {
         echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'celerev') .'</span><i class="fas fa-arrow-up"></i></button>';
@@ -785,7 +784,7 @@ function ct_cele_output_last_updated_date()
 
     if (get_the_modified_date() != get_the_date()) {
         $updated_post = get_post_meta($post->ID, 'ct_cele_last_updated', true);
-        $updated_customizer = get_theme_mod('last_updated');
+        $updated_customizer = ct_cele_get_mod('last_updated');
         if (
             ($updated_customizer === 'yes' && $updated_post !== 'no')
             || $updated_post === 'yes'
